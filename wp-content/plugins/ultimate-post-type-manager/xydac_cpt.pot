@@ -1,0 +1,896 @@
+# Copyright (C) 2010 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/ultimate-post-type-manager\n"
+"POT-Creation-Date: 2011-07-14 13:26:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: cptabout.php:5
+msgid "About This Plugin"
+msgstr ""
+
+#: cptabout.php:10
+msgid "Plugin Name"
+msgstr ""
+
+#: cptabout.php:11
+msgid "Ultimate Post Type Manager"
+msgstr ""
+
+#: cptabout.php:14
+msgid "Plugin Version"
+msgstr ""
+
+#: cptabout.php:18
+msgid "Author"
+msgstr ""
+
+#: cptabout.php:22
+msgid "Like this plugin?"
+msgstr ""
+
+#: cptabout.php:55
+msgid "Custom Post Type"
+msgstr ""
+
+#: cptabout.php:58
+msgid ""
+"<strong>Custom Post type</strong> is a way of storing different types of "
+"content under different names, and you can call these names as a Custom Post "
+"Type.WordPress supports Creating Custom Post types since ver 3.1, and you "
+"can use the above link to create unlimited number of custom post types.<br/>"
+msgstr ""
+
+#: cptabout.php:59
+msgid "Deleting Custom Post type"
+msgstr ""
+
+#: cptabout.php:60
+msgid ""
+"When you delete a Post Type then the data Post Type has saved does not get "
+"removed, So if you want to use the same Post Type again just recreate it "
+"again with same name.<br/>"
+msgstr ""
+
+#: cptabout.php:61
+msgid "Transferring from other Custom Post type plugins"
+msgstr ""
+
+#: cptabout.php:62
+msgid ""
+"If you have created Post types already with some other Plugin and want to "
+"move to this Plugin then just create the Post type with same name and "
+"configure it.Do deactivate the other plugin or remove the same post type "
+"from it. Also you need to deactivate and reactivate this plugin again."
+msgstr ""
+
+#: cptabout.php:63
+msgid "Some important links relating to Custom Post Types"
+msgstr ""
+
+#: cptabout.php:65
+msgid ""
+"\r\n"
+"\t\t\t\t\t\t\t<ul>\r\n"
+"\t\t\t\t\t\t\t\t<li><a href=\"http://codex.wordpress.org/Post_Types"
+"\">WordPress Codex : Post Type </a></li>\r\n"
+"\t\t\t\t\t\t\t\t<li><a href=\"http://codex.wordpress.org/Function_Reference/"
+"register_post_type\">WordPress Codex : register post type info </a></li>\r\n"
+"\t\t\t\t\t\t\t\t<li><a href=\"http://posttypemanager.wordpress.com/\">Plugin "
+"Website </a></li>\r\n"
+"\t\t\t\t\t\t\t</ul>\r\n"
+"\t\t\t\t\t\t\t"
+msgstr ""
+
+#: cptabout.php:79 index.php:58
+msgid "Custom Fields"
+msgstr ""
+
+#: cptabout.php:81
+msgid ""
+"Custom Fields are custom data associated with any post type.They are usually "
+"a key value pair but can provide a great aid to help you design you post "
+"page. With the help of the plugin you can create various types of custom "
+"fields for any Post Type including Post and Pages.<br/>\r\n"
+"                            \r\n"
+"                            "
+msgstr ""
+
+#: cptabout.php:84
+msgid "Using Custom Field in between Post"
+msgstr ""
+
+#: cptabout.php:86
+msgid ""
+"To display Custom Fields in the posts you can use shortcode <strong>"
+"[xydac_field]<em>{name of field}</em>[/xydac_field]</strong> where {name of "
+"field} is the Name of Custom Field."
+msgstr ""
+
+#: cptabout.php:87
+msgid "Availaible Field Types"
+msgstr ""
+
+#: cptabout.php:89
+msgid ""
+"\r\n"
+"\t\t\t\t\t\t\t<ul>\r\n"
+"\t\t\t\t\t\t\t\t<li>Text Box</li>\r\n"
+"\t\t\t\t\t\t\t\t<li>Text area</li>\r\n"
+"\t\t\t\t\t\t\t\t<li>Rich Text Area</li>\r\n"
+"\t\t\t\t\t\t\t\t<li>Checkbox</li>\r\n"
+"\t\t\t\t\t\t\t\t<li>Radio Button</li>\r\n"
+"\t\t\t\t\t\t\t\t<li>Combobox</li>\r\n"
+"\t\t\t\t\t\t\t\t<li>Link</li>\r\n"
+"\t\t\t\t\t\t\t\t<li>Gallery</li>\r\n"
+"\t\t\t\t\t\t\t\t<li>Image</li>\t\t\t\t\t\t\t\r\n"
+"\t\t\t\t\t\t\t</ul>\r\n"
+"\t\t\t\t\t\t\t"
+msgstr ""
+
+#: cptabout.php:110
+msgid "Information"
+msgstr ""
+
+#: cptabout.php:112
+msgid ""
+"This plugin is an Easy to use Custom Post Type Manager to Customize Post "
+"Types, and Custom Fields for all post types with great UI."
+msgstr ""
+
+#: cptabout.php:113
+msgid ""
+"You can use the above menus to create <strong>Custom Post Type</strong> as "
+"well as Create <strong>Custom Fields</strong> to store more information\r\n"
+"                           in each Post.These Custom Field Create a new Form "
+"for inserting these values.Just Check it out."
+msgstr ""
+
+#: cptabout.php:121
+msgid "Want More..."
+msgstr ""
+
+#: cptabout.php:124
+msgid ""
+"So, You want more..!!!<br/>\r\n"
+"\t\t\t\t\t   Check out the plugin to create Custom Taxonomies<br/><br/>\r\n"
+"\t\t\t\t\t   Taxonomies are simply different ways of classifying and "
+"organising different areas of your website,In fact there are two predefined "
+"taxonomies which are Tags and Category."
+msgstr ""
+
+#: cptabout.php:128
+msgid "Plugin Home Page"
+msgstr ""
+
+#: cptabout.php:129
+msgid "Download Latest Version Now"
+msgstr ""
+
+#: cptabout.php:130
+msgid "Hope You like that Plugin Also."
+msgstr ""
+
+#: cptabout.php:132
+msgid "Thank You"
+msgstr ""
+
+#: cptabout.php:132
+msgid ""
+"For Installing Ultimate Post Type Manager and Ultimate Taxonomy Manager."
+msgstr ""
+
+#: cptabout.php:132
+msgid ""
+"As you know creating good plugins require lot of time so, Support Further "
+"Development with you Esteemed Donation"
+msgstr ""
+
+#: cptabout.php:133
+msgid "Click Here To Donate"
+msgstr ""
+
+#: cptcreate.php:11 cptcreate.php:41
+msgid "Custom Post Type Name is required to create New Custom Post Type"
+msgstr ""
+
+#: cptcreate.php:13
+msgid "Custom Post Type already registered !!!"
+msgstr ""
+
+#: cptcreate.php:32
+msgid "Custom Post Type Added."
+msgstr ""
+
+#: cptcreate.php:43
+msgid "Changing Name is not allowed !!!"
+msgstr ""
+
+#: cptcreate.php:55
+msgid "Custom Post Type Updated."
+msgstr ""
+
+#: cptcreate.php:86
+msgid "Custom Post Type Deleted."
+msgstr ""
+
+#: cptcreate.php:89
+msgid "Custom Post Type Not Deleted."
+msgstr ""
+
+#: cptcreate.php:146
+msgid ":- NONE -:"
+msgstr ""
+
+#: cptcreate.php:160
+msgid "Labels"
+msgstr ""
+
+#: cptcreate.php:161
+msgid "Label for Post Type "
+msgstr ""
+
+#: cptcreate.php:161
+msgid "A plural descriptive name for the post type marked for translation."
+msgstr ""
+
+#: cptcreate.php:162
+msgid "Name of Post Type"
+msgstr ""
+
+#: cptcreate.php:162
+msgid ""
+"general name for the post type, usually plural. The same as, and overridden "
+"by Label "
+msgstr ""
+
+#: cptcreate.php:163
+msgid "Singular Name of Post Type"
+msgstr ""
+
+#: cptcreate.php:163
+msgid "name for one object of this post type. Defaults to value of name "
+msgstr ""
+
+#: cptcreate.php:164
+msgid "Add New Label of Post Type"
+msgstr ""
+
+#: cptcreate.php:164
+msgid ""
+"the add new text. The default is Add New for both hierarchical and non-"
+"hierarchical types."
+msgstr ""
+
+#: cptcreate.php:165
+msgid "Add New Item Label of Post Type"
+msgstr ""
+
+#: cptcreate.php:165
+msgid "the add new item text. Default is Add New Post/Add New Page"
+msgstr ""
+
+#: cptcreate.php:166
+msgid "Edit Item Label of Post Type"
+msgstr ""
+
+#: cptcreate.php:166
+msgid "the edit item text. Default is Edit Post/Edit Page"
+msgstr ""
+
+#: cptcreate.php:167
+msgid "New Item Label of Post Type"
+msgstr ""
+
+#: cptcreate.php:167
+msgid "the new item text. Default is New Post/New Page"
+msgstr ""
+
+#: cptcreate.php:168
+msgid "View Item Label of Post Type"
+msgstr ""
+
+#: cptcreate.php:168
+msgid "the view item text. Default is View Post/View Page"
+msgstr ""
+
+#: cptcreate.php:169
+msgid "Search Item Label of Post Type"
+msgstr ""
+
+#: cptcreate.php:169
+msgid "the search items text. Default is Search Posts/Search Pages"
+msgstr ""
+
+#: cptcreate.php:170
+msgid "Not Found Item Label of Post Type"
+msgstr ""
+
+#: cptcreate.php:170
+msgid "the not found text. Default is No posts found/No pages found"
+msgstr ""
+
+#: cptcreate.php:171
+msgid "Not Found in Thrash Label of Post Type"
+msgstr ""
+
+#: cptcreate.php:171
+msgid ""
+"the not found in trash text. Default is No posts found in Trash/No pages "
+"found in Trash"
+msgstr ""
+
+#: cptcreate.php:172
+msgid "Parent Item with Colon Label of Post Type"
+msgstr ""
+
+#: cptcreate.php:172
+msgid ""
+"the parent text. This string isn't used on non-hierarchical types. In "
+"hierarchical ones the default is Parent Page:"
+msgstr ""
+
+#: cptcreate.php:173
+msgid "Menu Name"
+msgstr ""
+
+#: cptcreate.php:173
+msgid "The menu name text. This string is the name to give menu items."
+msgstr ""
+
+#: cptcreate.php:174
+msgid "Enter Text Here Label"
+msgstr ""
+
+#: cptcreate.php:174
+msgid "The Enter Text Here title label for post type."
+msgstr ""
+
+#: cptcreate.php:175
+msgid "Options"
+msgstr ""
+
+#: cptcreate.php:176
+msgid "Public"
+msgstr ""
+
+#: cptcreate.php:176
+msgid ""
+"This field is used to define default values for publicly_queriable, show_ui, "
+"show_in_nav_menus and exclude_from_search, But since the values for these "
+"fields is already present so I think this won't be used, Better leave this "
+"as it is."
+msgstr ""
+
+#: cptcreate.php:177
+msgid "Publicly Queryable"
+msgstr ""
+
+#: cptcreate.php:177
+msgid ""
+"Allows advanced query based operations from themes based on variable "
+"post_type."
+msgstr ""
+
+#: cptcreate.php:178
+msgid "Exclude from search "
+msgstr ""
+
+#: cptcreate.php:178
+msgid "Whether to exclude posts with this post type from search results."
+msgstr ""
+
+#: cptcreate.php:179
+msgid "Show UI"
+msgstr ""
+
+#: cptcreate.php:179
+msgid "Whether use the default User Interface for the this Post Type."
+msgstr ""
+
+#: cptcreate.php:180
+msgid "Query Var"
+msgstr ""
+
+#: cptcreate.php:180
+msgid ""
+"Use False to disable Querying, True sets the query_var to the name of Post "
+"Type."
+msgstr ""
+
+#: cptcreate.php:181
+msgid "Can Export"
+msgstr ""
+
+#: cptcreate.php:181
+msgid ""
+"Allow Exporting of Post Types's Content from EXPORT option of WordPress."
+msgstr ""
+
+#: cptcreate.php:182
+msgid "Show in Navigation Menu"
+msgstr ""
+
+#: cptcreate.php:182
+msgid "Whether post_type is available for selection in navigation menus."
+msgstr ""
+
+#: cptcreate.php:183
+msgid "Show in Menu"
+msgstr ""
+
+#: cptcreate.php:183
+msgid ""
+"Whether to show the post type in the admin menu and where to show that menu. "
+"Note that show_ui must be true. "
+msgstr ""
+
+#: cptcreate.php:184
+msgid "Has Archive"
+msgstr ""
+
+#: cptcreate.php:184
+msgid ""
+"Enables post type archives. Will generate the proper rewrite rules if "
+"rewrite is enabled. "
+msgstr ""
+
+#: cptcreate.php:185
+msgid "Map Meta Capabilities"
+msgstr ""
+
+#: cptcreate.php:185
+msgid ""
+"Whether to use the internal default meta capability handling.This is used "
+"for default handling of Capabilities and should be set to TRUE for proper "
+"use "
+msgstr ""
+
+#: cptcreate.php:186
+msgid "Hierarchical "
+msgstr ""
+
+#: cptcreate.php:186
+msgid "Whether the post type is hierarchical. Allows Parent to be specified."
+msgstr ""
+
+#: cptcreate.php:187
+msgid "Menu Position"
+msgstr ""
+
+#: cptcreate.php:187
+msgid "The position in the menu order the post type should appear."
+msgstr ""
+
+#: cptcreate.php:188
+msgid "Features"
+msgstr ""
+
+#: cptcreate.php:189
+msgid "Support for Title"
+msgstr ""
+
+#: cptcreate.php:189 cptcreate.php:190 cptcreate.php:191 cptcreate.php:192
+#: cptcreate.php:193 cptcreate.php:194 cptcreate.php:195 cptcreate.php:196
+#: cptcreate.php:197 cptcreate.php:198
+msgid " "
+msgstr ""
+
+#: cptcreate.php:190
+msgid "Support for  Editor"
+msgstr ""
+
+#: cptcreate.php:191
+msgid "Support for Author"
+msgstr ""
+
+#: cptcreate.php:192
+msgid "Support for Thumbnail"
+msgstr ""
+
+#: cptcreate.php:193
+msgid "Support for  Excerpt"
+msgstr ""
+
+#: cptcreate.php:194
+msgid "Support for Trackbacks"
+msgstr ""
+
+#: cptcreate.php:195
+msgid "Support for Custom Fields"
+msgstr ""
+
+#: cptcreate.php:196
+msgid "Support for Comments"
+msgstr ""
+
+#: cptcreate.php:197
+msgid "Support for Revisions"
+msgstr ""
+
+#: cptcreate.php:198
+msgid "Support for Page attributes"
+msgstr ""
+
+#: cptcreate.php:199
+msgid "Show Default Category"
+msgstr ""
+
+#: cptcreate.php:199
+msgid "Show the Default Categories for this Custom Post Type "
+msgstr ""
+
+#: cptcreate.php:200
+msgid "Show Default Tags"
+msgstr ""
+
+#: cptcreate.php:200
+msgid "Show the Default Tags for this Custom Post Type "
+msgstr ""
+
+#: cptcreate.php:201
+msgid "Advanced Options"
+msgstr ""
+
+#: cptcreate.php:202
+msgid "Description"
+msgstr ""
+
+#: cptcreate.php:202
+msgid "A short descriptive summary of what the post type is."
+msgstr ""
+
+#: cptcreate.php:203
+msgid "Capability Type"
+msgstr ""
+
+#: cptcreate.php:203
+msgid ""
+"The post type to use for checking read, edit, and delete capabilities.The "
+"Capabilities will be automatically created."
+msgstr ""
+
+#: cptcreate.php:204
+msgid "Register Meta Box CB"
+msgstr ""
+
+#: cptcreate.php:204
+msgid ""
+"Provide a callback function that will be called when setting up the meta "
+"boxes for the edit form. Do remove_meta_box() and add_meta_box() calls in "
+"the callback."
+msgstr ""
+
+#: cptcreate.php:205
+msgid "Menu Icon"
+msgstr ""
+
+#: cptcreate.php:205
+msgid "The url to the icon to be used for this menu."
+msgstr ""
+
+#: cptcreate.php:206
+msgid "Rewrite Options"
+msgstr ""
+
+#: cptcreate.php:207
+msgid "Rewrite"
+msgstr ""
+
+#: cptcreate.php:207
+msgid "Do you Want the Permalinks ceated for this post-type to be Rewritten."
+msgstr ""
+
+#: cptcreate.php:208
+msgid "Slug"
+msgstr ""
+
+#: cptcreate.php:208
+msgid "Prepend posts with this slug. Uses Post-Type name if left blank."
+msgstr ""
+
+#: cptcreate.php:209
+msgid "Permalink_EPMASK"
+msgstr ""
+
+#: cptcreate.php:209
+msgid "The default rewrite endpoint bitmasks."
+msgstr ""
+
+#: cptcreate.php:210
+msgid "With Front"
+msgstr ""
+
+#: cptcreate.php:210
+msgid "allowing permalinks to be prepended with front base"
+msgstr ""
+
+#: cptcreate.php:211
+msgid "Feeds"
+msgstr ""
+
+#: cptcreate.php:212
+msgid "Pages"
+msgstr ""
+
+#: cptcreate.php:213
+msgid "Content Details"
+msgstr ""
+
+#: cptcreate.php:214
+msgid "Content HTML"
+msgstr ""
+
+#: cptcreate.php:221
+msgid "Edit Custom Post Type"
+msgstr ""
+
+#: cptcreate.php:221
+msgid "Add a New Custom Post Type"
+msgstr ""
+
+#: cptcreate.php:224
+msgid "The Name of the Custom Post Type"
+msgstr ""
+
+#: cptcreate.php:226
+msgid ""
+"Custom Post Type Name identifies your Custom Post among others. It is "
+"usually all lowercase and contains only letters, numbers, and hyphens."
+msgstr ""
+
+#: cptcreate.php:241
+msgid "True"
+msgstr ""
+
+#: cptcreate.php:242
+msgid "False"
+msgstr ""
+
+#: cptcreate.php:267
+msgid "Add Custom Post Type"
+msgstr ""
+
+#: cptcreate.php:267
+msgid "Update Custom Post Type"
+msgstr ""
+
+#: cptcreate.php:281 cptfields.php:295
+msgid "Bulk Actions"
+msgstr ""
+
+#: cptcreate.php:282 cptcreate.php:312 cptfields.php:296
+msgid "Delete"
+msgstr ""
+
+#: cptcreate.php:290 cptcreate.php:326 cptfields.php:304 cptfields.php:341
+msgid "Name"
+msgstr ""
+
+#: cptcreate.php:291 cptcreate.php:327 cptfields.php:305 cptfields.php:342
+msgid "Label"
+msgstr ""
+
+#: cptcreate.php:310
+msgid "Edit"
+msgstr ""
+
+#: cptcreate.php:311
+msgid "Export"
+msgstr ""
+
+#: cptcreate.php:336
+msgid "Custom Post Type Export Data"
+msgstr ""
+
+#: cptcreate.php:337
+msgid "Clear Data/ Import Form"
+msgstr ""
+
+#: cptcreate.php:339
+msgid ""
+"<em>NOTE: You can copy this data and paste it in the Import Post Type form "
+"and then click the Import Button to Import the Post Type as well as It's "
+"respective Custom Fields</em>"
+msgstr ""
+
+#: cptcreate.php:343
+msgid "Custom Post Type Import Form"
+msgstr ""
+
+#: index.php:56
+msgid "Home"
+msgstr ""
+
+#: index.php:57
+msgid "Ultimate Post Types"
+msgstr ""
+
+#: index.php:59
+msgid "Content"
+msgstr ""
+
+#: index.php:81
+msgid "Post Type Manager"
+msgstr ""
+
+#: index.php:91
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: index.php:163
+msgid "Add New"
+msgstr ""
+
+#: index.php:306
+msgid "XYDAC Custom Fields"
+msgstr ""
+
+#: index.php:526
+msgid "Availaible Shortcodes For Use "
+msgstr ""
+
+#: index.php:528
+msgid ""
+"You can use these shortcodes anywhere to get the values for them at used "
+"location."
+msgstr ""
+
+#: index.php:532 cptfields.php:362
+msgid "Field Name"
+msgstr ""
+
+#: index.php:631
+msgid "Custom Post Type and Custom Field Imported Sucessfully."
+msgstr ""
+
+#: index.php:636
+msgid "Custom Field Imported Sucessfully."
+msgstr ""
+
+#: index.php:641
+msgid "Custom Post Type Imported Sucessfully."
+msgstr ""
+
+#: index.php:646
+msgid "Custom Post Type already in use !!!"
+msgstr ""
+
+#: index.php:653
+msgid "There seems to be some problem with your data !!!"
+msgstr ""
+
+#: class-fieldType.php:30
+msgid "Label Undefined"
+msgstr ""
+
+#: cptfields.php:207
+msgid "Item Deleted."
+msgstr ""
+
+#: cptfields.php:229 cptfields.php:252
+msgid "You need to give field name"
+msgstr ""
+
+#: cptfields.php:231
+msgid "Changing Field Name is not allowed !!!"
+msgstr ""
+
+#: cptfields.php:243
+msgid "Item Updated."
+msgstr ""
+
+#: cptfields.php:254
+msgid "Field name not available"
+msgstr ""
+
+#: cptfields.php:267
+msgid "Item Added."
+msgstr ""
+
+#: cptfields.php:287
+msgid "Custom Post Type Name"
+msgstr ""
+
+#: cptfields.php:287
+msgid "[Select Another cpt]"
+msgstr ""
+
+#: cptfields.php:306 cptfields.php:343
+msgid "Type"
+msgstr ""
+
+#: cptfields.php:307 cptfields.php:344
+msgid "Order"
+msgstr ""
+
+#: cptfields.php:352
+msgid ""
+"<strong>Note:</strong><br>Deleting a field does not deletes the value in "
+"database"
+msgstr ""
+
+#: cptfields.php:353
+msgid ""
+"For those who had  been using other plugin to create or use custom field for "
+"post types can switch to this plugin by using the same custom field names. "
+"The values remain the same if using the Text Input type."
+msgstr ""
+
+#: cptfields.php:359
+msgid "Edit Custom Field"
+msgstr ""
+
+#: cptfields.php:359
+msgid "Add a New Custom Field"
+msgstr ""
+
+#: cptfields.php:364
+msgid "The name of the Field."
+msgstr ""
+
+#: cptfields.php:367
+msgid "Field Label"
+msgstr ""
+
+#: cptfields.php:369
+msgid "The Label of the Field."
+msgstr ""
+
+#: cptfields.php:372
+msgid "Field Type"
+msgstr ""
+
+#: cptfields.php:382
+msgid "Input type of the field."
+msgstr ""
+
+#: cptfields.php:385
+msgid "Field Description"
+msgstr ""
+
+#: cptfields.php:387
+msgid "Description for The Field"
+msgstr ""
+
+#: cptfields.php:390
+msgid "Field Value"
+msgstr ""
+
+#: cptfields.php:392
+msgid ""
+"Enter a comma seperated values to be used for Combo-box, Checkbox, Radio "
+"Buttons.For Gallery Enter Width,height as 300px,400px"
+msgstr ""
+
+#: cptfields.php:395
+msgid "Field Order"
+msgstr ""
+
+#: cptfields.php:397
+msgid "Enter 1,2,3.. order in which you want the Custom Field to appear."
+msgstr ""
+
+#: cptfields.php:403
+msgid "Update Custom Field"
+msgstr ""
+
+#: cptfields.php:403
+msgid "Add Custom Field"
+msgstr ""
+
+#: cptfields.php:419
+msgid "Select the Custom Post Type To manage "
+msgstr ""
+
+#: cptfields.php:431
+msgid ""
+"The fields that you create here will be visible on the Custom Post Type Page."
+msgstr ""

@@ -1,0 +1,260 @@
+# Translation of the WordPress plugin Fields 0.3.2.1 by .
+# Copyright (C) 2010
+# This file is distributed under the same license as the Fields package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Fields 0.3.2.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/fields\n"
+"POT-Creation-Date: 2010-07-26 16:43+0000\n"
+"PO-Revision-Date: 2010-07-27 02:45+1000\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: admin/fs-page-boxes.php:59
+#: admin/fs-page-groups.php:87
+#, php-format
+msgid "\"%1$s\" added."
+msgstr ""
+
+#: admin/fs-page-boxes.php:64
+#, php-format
+msgid "A box with key \"%1$s\" already exists"
+msgstr ""
+
+#: admin/fs-page-boxes.php:70
+#: admin/fs-page-boxes.php:126
+msgid "Box key cannot be blank"
+msgstr ""
+
+#: admin/fs-page-boxes.php:115
+#: admin/fs-page-boxes.php:180
+#, php-format
+msgid "Box \"%1$s\" not found"
+msgstr ""
+
+#: admin/fs-page-boxes.php:138
+#, php-format
+msgid "A box with key \"%1$s\" already exist"
+msgstr ""
+
+#: admin/fs-page-boxes.php:156
+#, php-format
+msgid "Box \"%1$s\" updated."
+msgstr ""
+
+#: admin/fs-page-boxes.php:176
+msgid "Box \"$1$s\" deleted."
+msgstr ""
+
+#: admin/fs-page-boxes.php:222
+#: admin/fs-page-groups.php:402
+#: admin/fs-page-groups.php:480
+msgid "Title"
+msgstr ""
+
+#: admin/fs-page-boxes.php:223
+#: admin/fs-page.php:42
+msgid "Groups"
+msgstr ""
+
+#: admin/fs-page-boxes.php:224
+msgid "Post types"
+msgstr ""
+
+#: admin/fs-page-boxes.php:225
+#: admin/fs-page-groups.php:405
+#: admin/fs-page-groups.php:483
+msgid "Actions"
+msgstr ""
+
+#: admin/fs-page-groups.php:92
+#, fuzzy, php-format
+msgid "A group with key \"%1$s\" already exists"
+msgstr ""
+
+#: admin/fs-page-groups.php:98
+msgid "group key cannot be blank"
+msgstr ""
+
+#: admin/fs-page-groups.php:124
+#: admin/fs-page-groups.php:188
+#: admin/fs-page-groups.php:260
+#, php-format
+msgid "Group \"%1$s\" not found"
+msgstr ""
+
+#: admin/fs-page-groups.php:134
+msgid "Group key cannot be blank"
+msgstr ""
+
+#: admin/fs-page-groups.php:146
+#, php-format
+msgid "A group with key \"%1$s\" already exist"
+msgstr ""
+
+#: admin/fs-page-groups.php:164
+#, php-format
+msgid "Group \"%1$s\" updated"
+msgstr ""
+
+#: admin/fs-page-groups.php:184
+#, php-format
+msgid "Group \"%1$s\" deleted."
+msgstr ""
+
+#: admin/fs-page-groups.php:201
+#, php-format
+msgid "Group with key \"%1$s\" does not exist"
+msgstr ""
+
+#: admin/fs-page-groups.php:220
+#: admin/fs-page-groups.php:309
+#, php-format
+msgid "Field with key \"%1$s\" already exists in group \"%2$s\""
+msgstr ""
+
+#: admin/fs-page-groups.php:227
+#, php-format
+msgid "Field \"%1$s\" added."
+msgstr ""
+
+#: admin/fs-page-groups.php:268
+msgid "Invalid field"
+msgstr ""
+
+#: admin/fs-page-groups.php:277
+#: admin/fs-page-groups.php:366
+#, php-format
+msgid "Field with key \"%1$s\" not found"
+msgstr ""
+
+#: admin/fs-page-groups.php:297
+msgid "Field key cannot be blank"
+msgstr ""
+
+#: admin/fs-page-groups.php:320
+#, php-format
+msgid "Field \"%1$s\" updated."
+msgstr ""
+
+#: admin/fs-page-groups.php:327
+msgid "Error while updating field"
+msgstr ""
+
+#: admin/fs-page-groups.php:340
+msgid "Invalid group"
+msgstr ""
+
+#: admin/fs-page-groups.php:361
+#, php-format
+msgid "Field \"%1$s\" deleted."
+msgstr ""
+
+#: admin/fs-page-groups.php:371
+msgid "Invalid field key"
+msgstr ""
+
+#: admin/fs-page-groups.php:375
+msgid "Invalid group key"
+msgstr ""
+
+#: admin/fs-page-groups.php:379
+msgid "Invalid parameter"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (Fields 0.3.2.1)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/fs-page-groups.php:403
+msgid "Fields"
+msgstr ""
+
+#: admin/fs-page-groups.php:404
+#: admin/fs-page-groups.php:482
+msgid "Order"
+msgstr ""
+
+#: admin/fs-page-groups.php:481
+msgid "Type"
+msgstr ""
+
+#: admin/fs-page-groups.php:563
+msgid "Add New Field"
+msgstr ""
+
+#: admin/fs-page.php:39
+msgid "Boxes"
+msgstr ""
+
+#: admin/fs-page.php:45
+msgid "Options"
+msgstr ""
+
+#: field-types/fs-checkbox.php:19
+#: field-types/fs-checkbox.php:42
+msgid "Checkbox values"
+msgstr ""
+
+#: field-types/fs-checkbox.php:25
+#: field-types/fs-checkbox.php:50
+#: field-types/fs-radio.php:25
+#: field-types/fs-radio.php:50
+msgid "Item width"
+msgstr ""
+
+#: field-types/fs-checkbox.php:31
+#: field-types/fs-checkbox.php:58
+#: field-types/fs-radio.php:31
+#: field-types/fs-radio.php:58
+msgid "Container width"
+msgstr ""
+
+#: field-types/fs-radio.php:19
+#: field-types/fs-radio.php:42
+msgid "Radio values"
+msgstr ""
+
+#: field-types/fs-select.php:19
+#: field-types/fs-select.php:30
+msgid "Drop box values"
+msgstr ""
+
+#: field-types/fs-textarea.php:21
+#: field-types/fs-textarea.php:35
+msgid "Rows"
+msgstr ""
+
+#: field-types/fs-textarea.php:26
+msgid "Use visual editor"
+msgstr ""
+
+#: field-types/fs-textfield.php:22
+#: field-types/fs-textfield.php:31
+msgid "Multiple values"
+msgstr ""
+
+#: field-types/fs-textfield.php:23
+msgid "users will be able to add multiple values to this field"
+msgstr ""
+
+#: field-types/fs-textfield.php:65
+msgid "Add more"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://calce.net/fields"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Creates custom write panels to manage post custom fields."
+msgstr ""
+
+#. Author URI of the plugin/theme
+#, fuzzy
+msgid "http://calce.net/"
+msgstr ""
+

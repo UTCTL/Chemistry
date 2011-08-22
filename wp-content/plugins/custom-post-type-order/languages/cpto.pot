@@ -1,0 +1,68 @@
+# Translation of the WordPress plugin Custom Post Type Order 1.0 by Be API.
+# Copyright (C) 2010 Be API
+# This file is distributed under the same license as the Custom Post Type Order package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Post Type Order 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-post-type-order\n"
+"POT-Creation-Date: 2010-08-30 19:56+0000\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: custom-post-type-order.php:53
+msgid "Invalid post type"
+msgstr ""
+
+#: custom-post-type-order.php:90
+msgid "Order this"
+msgstr ""
+
+#: custom-post-type-order.php:103
+#, php-format
+msgid "Order this content type : %s"
+msgstr ""
+
+#: custom-post-type-order.php:109
+msgid ""
+"This plugin can't work without javascript, because it's use drag and drop "
+"and AJAX."
+msgstr ""
+
+#: custom-post-type-order.php:122
+msgid "Save order"
+msgstr ""
+
+#: custom-post-type-order.php:145
+msgid "Items sorted with success !"
+msgstr ""
+
+#: custom-post-type-order.php:168
+msgid "Pages"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Custom Post Type Order"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.beapi.fr"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A admin for order custom post type with hierarchical posts"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Be API"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://beapi.fr"
+msgstr ""

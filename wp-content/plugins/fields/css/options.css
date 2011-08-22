@@ -1,0 +1,55 @@
+.cut
+{
+  clear: both;
+}
+
+ul.subsubsub
+{
+  margin-bottom: 8px;
+}
+
+.check-row input
+{
+  width: auto;
+}
+
+.check-row label, .input-label
+{
+  padding-left: 5px;
+  font-size: 12px;
+  display: inline;
+  vertical-align: middle;
+  font-weight: normal !important;
+}
+
+.form-table
+{
+  margin-top: 0;
+}
+
+#tag-field-type
+{
+  min-width: 120px;
+}
+
+.back-link
+{
+  margin-left: 7px;
+}
+
+input.fs-short-input
+{
+  width: 100px;
+}
+
+span.fs-hidden
+{
+  margin: 0 0 0 5px;
+  color: #666666;
+  visibility: hidden;
+}
+
+table.widefat tr:hover span.fs-hidden, table.widefat tr:active span.fs-hidden, label:hover > .fs-hidden
+{
+  visibility: visible;
+}

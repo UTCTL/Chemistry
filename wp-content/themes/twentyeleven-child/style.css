@@ -1,0 +1,295 @@
+/*
+Theme Name: Twenty Eleven Child
+Theme URI: http://wordpress.org/extend/themes/twentyeleven
+Author: the WordPress team
+Author URI: http://wordpress.org/
+Description: The 2011 theme for WordPress is sophisticated, lightweight, and adaptable. Make it yours with a custom menu, header image, and background -- then go further with available theme options for light or dark color scheme, custom link colors, and three layout choices. Twenty Eleven comes equipped with a Showcase page template that transforms your front page into a showcase to show off your best content, widget support galore (sidebar, three footer areas, and a Showcase page widget area), and a custom "Ephemera" widget to display your Aside, Link, Quote, or Status posts. Included are styles for print and for the admin editor, support for featured images (as custom header images on posts and pages and as large images on featured "sticky" posts), and special styles for six different post formats.
+Version: 1.2
+License: GNU General Public License
+License URI: license.txt
+Tags: dark, light, white, black, gray, one-column, two-columns, left-sidebar, right-sidebar, fixed-width, flexible-width, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-image-header, featured-images, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
+*/
+
+
+@import url("../twentyeleven/style.css");
+
+h1, h2, h3, h4, h5, h6 {
+    clear:none !important;
+}
+
+body {
+    background:rgba(0, 0, 0, .5) url(images/bgtile3.png) repeat center top;
+}
+
+#page {
+	background:url(images/bgtile4.png) center top;
+    border-left: solid;
+    border-right: solid;
+    border-color: rgba(255, 255, 255, 0.6);
+    -moz-box-shadow: 0px 0px 150px #000;
+	-webkit-box-shadow: 0px 0px 150px #000;
+	box-shadow: 0px 0px 150px #000;
+    height:100%;
+}
+
+#main {
+    padding: 0;
+}
+
+#primary {
+    text-shadow: 1px 1px 1px black;
+    background-color: rgba(26,84,91,0.4);
+    border-radius: 2em;
+    border: solid;
+    border-width: 0.5em;
+    border-color: rgba(0, 0, 0, 0.55);
+    width: 56em;
+    margin: 0 1.5em 2em !important;
+    padding:0 0 2em;
+}
+
+#primary:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+#branding{
+	background-image: url(images/header.png);
+}
+
+.levela  {
+	text-transform: uppercase;
+}
+
+#units > li > a {
+    text-align: left;
+    padding-left: 100px;
+    width: 138px;
+    height: 62px;
+    padding-top: 8px;
+    line-height: 48px;
+    padding-right: 13px;
+}
+
+#units {
+	width:811px;
+}
+
+#gases,
+#atomic-theory-and-bonding,
+#intermolecular-forces,
+#thermodynamics {
+	list-style-type: none;
+	float: left;
+	width: 350px;
+	min-height: 70px;
+	margin: 0px 45px 10px 0px;
+
+}
+
+#gases > a,
+#atomic-theory-and-bonding > a,
+#intermolecular-forces > a,
+#thermodynamics > a {
+	color: #fff !important;
+	position: relative;
+    text-decoration: none !important;
+    display: block;
+    width: 250px;
+    margin: 5px 0 0 0;
+	line-height: 49px;
+    text-align: center;
+}
+
+
+#gases > a{
+    background:url(images/buttons/Unit1.png) no-repeat left top;
+}
+
+#atomic-theory-and-bonding > a {
+    background:url(images/buttons/Unit2.png) no-repeat left top;
+    line-height: 24px !important;
+}
+
+#intermolecular-forces{
+}
+
+#intermolecular-forces > a {
+    background:url(images/buttons/Unit3.png) no-repeat left top;
+    line-height: 24px !important;
+}
+
+#thermodynamics{
+
+}
+
+#thermodynamics > a {
+    background:url(images/buttons/Unit4.png) no-repeat left top;
+
+}
+
+
+li.level2 {
+	width:270px;
+}
+
+.level2 {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+.level2 > a{
+	display: block;
+}
+
+.level2a img {
+	margin-top: -0.8em;
+	float:left;
+	max-height: 43px;
+	margin-right: 10px;
+}
+
+.level2a{
+	-webkit-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3), 0 0 20px rgba(200, 200, 200, .2);
+	-moz-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3), 0 0 20px rgba(200, 200, 200, .2);
+    color: #fff !important;
+    text-decoration: none !important;
+    background-color: rgba(133, 162, 166, 0.5);
+    background-repeat: no-repeat;
+    background-position: 5% center;
+    padding: 1em 0 1em 0.2em;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    border-style:solid;
+    border-width: 2px;
+    border-color: #fff;
+/*    height: 25px;*/
+    line-height: 1.1em !important;
+}
+
+.level2a:hover{
+	-webkit-box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 1);
+	-moz-box-shadow: inset 0 0 50px rgba(255, 255, 255, .3), 0 0 20px rgba(255, 255, 255, 0.8);
+    color: #fff !important;
+    text-decoration: none !important;
+    background-color: rgba(133, 162, 166, 0.5);
+    padding: 1em 0 1em 0.2em;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    border-style:solid;
+    border-color: #fff;
+    /* width: 250px; */
+    line-height: 1.1em !important;
+}
+
+/* STYLE FOR DISABLED MODULES */
+.level2a_disabled img {
+	margin-top: -0.8em;
+	float:left;
+	max-height: 43px;
+	margin-right: 10px;
+	opacity: 0.3;
+	}
+
+.level2a_disabled{
+	-webkit-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3), 0 0 20px rgba(200, 200, 200, .2);
+	-moz-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3), 0 0 20px rgba(200, 200, 200, .2);
+    color: rgba(255, 255, 255, 0.3); !important;
+    text-decoration: none !important;
+    background-color: rgba(133, 162, 166, 0.3);
+    background-repeat: no-repeat;
+    background-position: 5% center;
+    padding: 1em 0 1em 0.2em;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    border-style:solid;
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.3);
+/*    height: 25px;*/
+    line-height: 1.1em !important;
+    margin-bottom: 0em;
+}
+
+/* Style for the "do box" on lecture posts */
+.do-box {
+    float: right;
+    border-style: solid;
+    border-width: 1px;
+    width: 250px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+.do-box h2 {
+    padding-top:0;
+    display: inline;
+}
+
+/* Prominent formatting for Exams and Quizzes */
+.entry-content #exams  h2{
+    font-size: 20px;
+    color: blue;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+/* The thumbnails in the video gallery page*/
+.embedly img {
+    width: 190px;
+    max-width:none;
+}
+
+.tax-unit #content {
+    margin: 0 7.6% !important;
+    width: auto !important;
+}
+
+.lecture .entry-header, .lecture .entry-content, .lecture .entry-meta {
+    width:auto !important;
+}
+
+            
+            .video li a{
+                list-style-type: none;
+            }
+            
+            #vid
+            {
+                list-style-type: none;
+            }
+            
+.section {
+    
+}
+    .section #content {
+        margin:0 0 0 20px;
+        padding:0;
+        width: 680px;
+    }
+    .section article {
+        padding-top:0 !important;
+    }
+    .section .entry-header, .section .entry-content, .section .entry-meta {
+        width:auto !important;
+    }
+
+
+
+
+.entry-title {
+    padding-top: 25px;
+    color:#FFFFFF !important;
+    letter-spacing: -1px;
+}
+.entry-content {
+    font-size:0.875em;
+}
+
+.footer {
+	height: 40px;
+	background-color: #fff;
+}

@@ -1,0 +1,186 @@
+<h4>
+    Documentation Index
+</h4>
+<ul>
+    <li>
+        <a href="#theme" class="current">
+            Integrating WEC into your theme
+        </a>
+    </li>
+</ul>
+<a name="theme">
+</a>
+<h4>
+    Integrating WEC into your theme
+</h4>
+<p>
+    WordPress event calendar was designed to fit into your themes seamlessly. It was designed to use a query object, similiar to the WordPress loop to display your data. 
+    <br/>
+    <br/>
+    <strong>
+        Example:
+    </strong>
+    <br/>
+    <textarea rows="13" class="large-text readonly" readonly="readonly" cols="25">
+        &lt;?php 
+        //You instantiate the query object much as you would a WordPress query 
+        $queryObject = new WEC_Query('calendarID=4');
+        //Start the loop
+        while($queryObject->haveEvents()): $queryObject->the_event();
+        //display some stuff
+        //End the loop 
+        endwhile; 
+        ?&gt;
+    </textarea>
+</p>
+<p>
+    There are many functions you can use to display data from the loop. Calling any of these functions will print the data you call. All these functions also have a get_functionName() that will return the value to you as a variable to do with what you wish.
+</p>
+<p>
+    <strong>
+        eventTitle
+    </strong>
+    <br/>
+    The eventTitle function prints the title of the event to which this recurrence belongs. 
+    <strong>
+        theTitle
+    </strong>
+    is an alias of this function
+</p>
+<p>
+    <strong>
+        eventDescription
+    </strong>
+    <br/>
+    The eventDescription function prints the description of the event to which this recurrence belongs. 
+    <strong>
+        theDescription
+    </strong>
+    is an alias of this function
+</p>
+<p>
+    <strong>
+        eventExcerpt
+    </strong>
+    <br/>
+    The eventExcerpt function prints the excerpt of the event to which this recurrence belongs. 
+    <strong>
+        theExcerpt
+    </strong>
+    is an alias of this function
+</p>
+<p>
+    <strong>
+        eventLocation
+    </strong>
+    <br/>
+    The eventLocation function prints the location of the event to which this recurrence belongs. 
+    <strong>
+        theLocation
+    </strong>
+    is an alias of this function
+</p>
+<p>
+    <strong>
+        eventID
+    </strong>
+    <br/>
+    The eventID function prints the ID number of the event to which this recurrence belongs.
+</p>
+<p>
+    <strong>
+        recurrenceID
+    </strong>
+    <br/>
+    The recurrenceID function prints the ID number of the current recurrence of an event that is being displayed.
+</p>
+<p>
+    <strong>
+        startTime
+        <br/>
+    </strong>
+    The startTime function prints the time that this event starts. It can accept a PHP date/time format string as an arguement in order to style the time. For documentation on this see: 
+    <a href="http://codex.wordpress.org/Formatting_Date_and_Time">
+        Documentation on date formatting
+    </a>
+</p>
+<p>
+    <strong>
+        endTime
+        <br/>
+    </strong>
+    The endTime function prints the time that this event ends. It can accept a PHP date/time format string as an arguement in order to style the time. For documentation on this see: 
+    <a href="http://codex.wordpress.org/Formatting_Date_and_Time">
+        Documentation on date formatting
+    </a>
+</p>
+<p>
+    <strong>
+        startDate
+        <br/>
+    </strong>
+    The startDate function prints the date that this event starts. If this event wraps over more than one day, this will only display the start date, not a range of dates. It can accept a PHP date/time format string as an arguement in order to style the time. For documentation on this see: 
+    <a href="http://codex.wordpress.org/Formatting_Date_and_Time">
+        Documentation on date formatting
+    </a>
+</p>
+
+<p>
+    <strong>
+        endDate
+        <br/>
+    </strong>
+    The endDate function prints the date that this event ends. It can accept a PHP date/time format string as an arguement in order to style the time. For documentation on this see: 
+    <a href="http://codex.wordpress.org/Formatting_Date_and_Time">
+        Documentation on date formatting
+    </a>
+</p>
+
+
+<p>
+    <strong>
+        editLink
+        <br/>
+    </strong>
+    Displays an edit link in your template. Clicking it will immediately take you into the admin interface to edit this event. Only visible to users who are logged in. Accepts a string arguement that will change the default link text
+</p>
+
+
+<p>
+    &nbsp;
+</p>
+<p>
+    <strong>
+        Usage
+    </strong>
+</p>
+<p>
+    These functions are all members of the WEC_Query object. To use them, inside the loop call the function on the query object.
+</p>
+<p>
+    <strong>
+        Example:
+    </strong>
+    <br/>
+    <textarea name="textarea" rows="13" readonly="readonly" class="large-text readonly" cols="25">
+        &lt;?php
+        while($queryObject-&gt;haveEvents()): $queryObject-&gt;the_event();
+        ?&gt;
+        &lt;p&gt;&lt;br /&gt;
+        &lt;strong&gt;&lt;?php $queryObject-&gt;eventTitle(); ?&gt;&lt;/strong&gt;
+        &lt;br /&gt;
+        &lt;?php $queryObject-&gt;eventDescription():?&gt;
+        &lt;?php
+        //End the loop
+        endwhile;  ?&gt;
+    </textarea>
+</p>
+<p>
+    &nbsp;
+</p>
+<p>
+    &nbsp;
+</p>
+<p>
+    &nbsp;
+</p>

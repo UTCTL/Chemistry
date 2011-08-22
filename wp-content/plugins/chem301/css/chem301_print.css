@@ -1,0 +1,64 @@
+html, body, body * {
+	background: white !important;
+	color:black !important;
+	font-size: 10pt !important;
+    border:none !important;
+    border-radius:0 !important;
+	box-shadow:none !important;
+	text-shadow:none !important;
+	margin:0 !important;
+	padding:0 !important;
+	position:normal !important;
+	left: 0 !important;
+	font-family:Arial, Arial, Helvetica, sans-serif !important;
+	text-transform: none;
+}
+html {
+    padding-bottom:1em !important;
+    margin:0 1em !important;
+}
+.entry-header {
+	color:black !important;
+}
+#content, #page {
+    width:100% !important;
+}
+#banner, #wpadminbar, .videos, #module-nav, .attachments, .external-resources, .show_hide {
+    display:none !important;
+}
+.unit-title {
+    display:block !important;
+    font-size:16pt !important;
+    margin:0 0 1.5em 0 !important;
+}
+.section .entry-title {
+    font-size:12pt !important;
+    margin-bottom:0.75em !important;
+}
+.section p {
+    margin-bottom:1em !important;
+}
+.submodule {
+    margin-top:1.5em !important;
+}
+.submodule .subtitle {
+    font-size:12pt !important;
+    margin-bottom:1em !important;
+}
+.submodule .submodule-post-content {
+    margin-top:1em !important;
+}
+.submodule .question_A {
+    margin-top:1em !important;
+    margin-left:1em !important;
+    display:block !important;
+}
+.submodule .question_A:before {
+    content:'Answer: ';
+}
+a:link, a:visited {
+	color: #520;
+	background: transparent;
+	font-weight: bold;
+	text-decoration: underline;
+}

@@ -1,0 +1,36 @@
+------ Change Log ------
+On January 12, 2011 create a documentation fix. 
+	Last upload to wordpress.org svn repository seems to have had some sort of failure with publishing screenshots. This version only attempts to fix this one issue.
+On September 6, 2008 create wpmathpub version 1.0.7 plugin for WordPress
+Start with Ron's wpmathpub version 1.0.6:
+	Add new feature: a status display that a blog admin can view after installation from Site Admin > Manage > wpmathpub
+	Change priority from default to 5 within content filter [line 239 of wpmathpub.php]. This change allows the plugin to co-exist with streaming video plugins that use this same content.filter.
+	Update the FAQ and add screenshot-5 to document these changes
+On March 19, 2008 create wpmathpub version 1.0.6 plugin for WordPress 
+Start with Ron's wpmathpub version 1.0.5:
+	Fix a bug in relative address scheme that affected admin and rss feed display of math equations in comments
+	Fix a bug in control of automatic write control of 'img' display
+	Add new control variable, named ENGAGECOMMENTS, to allow easy control of comment display
+	Update FAQ and Screenshots to support these bug fixes and new the feature
+On March 19, 2008 create wpmathpub version 1.0.5 plugin for WordPress 
+Start with Ron's wpmathpub version 1.0.4:
+	Add support for auto-assignment of write access to ./phpmathpublisher/img directory
+	Decode HTML entities used in ASCII math text so symbols like ">" and "<" work propoerty when used between pmath tags.
+	Change priority of add_filter commands from 5 to default
+	Add support for using [pmath] tags within WordPress comments
+	Test the new wpmathpub plugin on WordPress versions 2.5.1 and 2.3.3
+On March 17, 2008 create wpmathpub version 1.0.4 plugin for WordPress 
+Start with Matteo Bertini's sample code base:
+	Plugin Name: PHP Math Publisher
+	Plugin URI: http://www.slug.it/naufraghi/programmazione-web/wpmathpublisher
+	Version: 1.0.3
+	Author: Matteo Bertini
+	Author URI: http://www.slug.it/naufraghi/
+Changes made to Matteo Bertini's Version: 1.0.3:
+	a) Automate the original site specific configuration 
+	b) Add optional font size attribute to the [pmath] tag. New tag format: [pmath size=xx]...[/pmath], where xx represents a one or two digit font size
+	c) Maintain backward compatiblility with Matteo's original tag scheme, [pmath]...[/pmath], define default value for size attribute of 12.
+	d) Shorten plugin name and edit code comments
+	e) Pull in complete code tree from Pascal Brachet's current phpmathpublisher offering: http://www.xm1math.net/phpmathpublisher/
+
+---- End Change Log ----
