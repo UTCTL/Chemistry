@@ -19,13 +19,11 @@ function showPublishBox($eventID = 0)
                 <div id="minor-publishing-actions">
                     <?php if ($eventID != 0) { ?>
                     <div id="delete-action">
-                        <a class="submitdelete deletion" href="" onclick="if(confirm('You are about to delete this event. Press Cancel to stop or OK if you\'re sure')){$('deleteEventForm').submit();}">Delete Event</a>
+                        <a class="submitdelete deletion" href="" onclick="if(confirm('You are about to delete this event. Press Cancel to stop or OK if you\'re sure')){$('#deleteEventForm').submit();}">Delete Event</a>
                     </div>
-                    <form id="deleteEventForm" action="<?php wec_currentURL ()?>?page=calendar.php" method="post" style="display: inline;">
-                        <input type="hidden" name="wec_action" value="deleteEvent" /><input type="hidden" name="eventID" value="<?php echo $eventID; ?>"/>
-                    </form>
                     <div id="publishing-action">
-                        <img src="images/wpspin_light.gif" id="ajax-loading" style="visibility: hidden; " alt=""><input name="save" type="submit" class="button-primary" id="publish" tabindex="5" accesskey="p" value="Update">
+                        <img src="images/wpspin_light.gif" id="ajax-loading" style="visibility: hidden; " alt="" />
+                        <input name="save" type="submit" class="button-primary" id="publish" tabindex="5" accesskey="p" value="Update" />
                     </div>
                     <?php 
                     }

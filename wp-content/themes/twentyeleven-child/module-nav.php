@@ -53,10 +53,26 @@
         } else {
             $current = '';
         }
+		
+		$unitstatus = get_post_meta($unit->ID, 'enable_module');
         ?>
 
         <li>
-            <a <?php echo $current; ?>href="<?php echo $unit->guid; ?>"><?php echo $unit->post_title; ?></a>
+        	<?php
+        	if($unitstatus[0] == 1)
+        	{
+        		?>
+            	<a <?php echo $current; ?>href="<?php echo $unit->guid; ?>"><?php echo $unit->post_title; ?></a>
+            	<?php
+            }
+            
+            else
+            {
+            	?>
+            	<p <?php echo $current; ?>><?php echo $unit->post_title; ?></p>
+            	<?php
+            }
+			?>
             <ul>
             <?php
             $modules = get_children( array('post_parent' => $unit->ID, 'post_type' => 'module','orderby'=>'menu_order','order'=>'ASC') );

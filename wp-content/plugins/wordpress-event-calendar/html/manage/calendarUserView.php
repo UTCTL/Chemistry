@@ -114,9 +114,10 @@ function wec_calendar_user_view($currentPage)
         </form>
     </div>
 </div>
-<div id="todayButton" style="float: right; display: inline; margin: 0 15px 5px 0;">
+<div id="todayButton">
     <form name="goToToday" id="goToToday" action="<?php echo $currentPage; ?>" method="post">
-        <input type="hidden" name="wec_action" value="calendarview" /><input type="hidden" name="calendarViewDate" value="<?php echo strtotime(date('F Y'), date('U')); ?>" /><input type="submit" value="Today" class="button" style="width: 65px; height: 20px; -webkit-border-radius: 0px; -moz-border-radius: 0px; margin: 0px 0px 4px 0px;"/>
+        <input type="hidden" name="wec_action" value="calendarview" /><input type="hidden" name="calendarViewDate" value="<?php echo strtotime(date('F Y'), date('U')); ?>" />
+        <input type="submit" value="Show Today" class="button" />
     </form>
 </div>
 <script type = "text/javascript">
@@ -294,36 +295,16 @@ function wec_calendar_user_view($currentPage)
                 while ($queryObject->haveEvents()):
                     $queryObject->the_event();
                     
-            ?>
-            <div onmouseover="document.getElementById('showEditBox<?php echo $queryObject->getRecurrenceID(); ?>').style.display='inline';" onmouseout="document.getElementById('showEditBox<?php echo $queryObject->getRecurrenceID(); ?>').style.display='none';" style="margin: 0px; padding: 0px; display: inline-block;">
-                <?php 
-                //echo $queryObject->getStartTime('g:i a');
                 ?>
+                    <a class="description" href="#<?php echo $queryObject->getEventID().$queryObject->getRecurrenceID(); ?>">
+                        <div style="margin: 0px; padding: 0px; display: inline-block;">
+                            <?php $queryObject->theTitle(); ?>
+                        </div>        
+                    </a>
                 <?php 
-                $queryObject->theTitle();
-                
-                ?>
-                <span class="inlineEditBox" id="showEditBox<?php echo $queryObject->getRecurrenceID(); ?>"><img title="Edit Event" onclick="jQuery('editEvent<?php echo $queryObject->getEventID(); ?>withRecurrenceID<?php echo $queryObject->getRecurrenceID(); ?>').submit();" style="display:inline; margin: 0px; padding: 0px" src="<?php bloginfo('url'); echo '/wp-content/plugins' . INSTALLED_FOLDER_NAME . '/images/pencil.jpg'; ?>" width="11px" height="10px" alt="Edit" /><a title="Delete event" style="color: #ca5353;" href="#" onclick="if(confirm('You are about to delete this event. This cannot be undone. Are you sure you wish to continue?')){jQuery('deleteRecurrence<?php echo $queryObject->getRecurrenceID();?>').submit();}">x</a></span>
-            </div>
-            <form name="editEvent<?php echo $queryObject->getEventID(); ?>" id="editEvent<?php echo $queryObject->getEventID(); ?>withRecurrenceID<?php echo $queryObject->getRecurrenceID(); ?>" action="<?php echo wec_currentURL(); ?>?page=calendar.php" method="post">
-                <input type="hidden" name="wec_action" value="editEvent" /><input type="hidden" name="eventID" value="<?php echo $queryObject->getEventID(); ?>" />
-            </form>
-            <form name="deleteRecurrence<?php echo $queryObject->getRecurrenceID(); ?>" id="deleteRecurrence<?php echo $queryObject->getRecurrenceID(); ?>" action="<?php echo wec_currentURL(); ?>?page=calendar.php" method="post">
-                <input type="hidden" name="wec_action" value="deleteRecurrenceFromCalendarView" /><input type="hidden" name="recurrenceID" value="<?php echo $queryObject->getRecurrenceID(); ?>" /><input type="hidden" name="calendarViewDate" value="<?php echo strtotime(date('F Y', $theDate)); ?>" />
-                <?php 
-                if (isset($calendars))
-                {
-                    
-                ?>
-                <input type="hidden" name="calendarData" value="<?php echo attribute_escape(serialize($calendars)); ?>" />
-                <?php 
-                }
-                ?>
-            </form>
-            <?php 
-            //End the loop
-            endwhile;
-            $queryObject->unfilterResults();
+                //End the loop
+                endwhile;
+                $queryObject->unfilterResults();
             }
             }
             ?>

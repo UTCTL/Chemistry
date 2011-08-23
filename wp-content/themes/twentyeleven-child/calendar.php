@@ -52,7 +52,7 @@ endforeach;
 	width: 30%;
 	background-color:#F0F0F0;
 	float:right;
-	margin: 31px 15px 5px 0px ;
+	margin: 37px 15px 5px 0px ;
 }
 
 #announcements .scrolling {
@@ -67,12 +67,25 @@ endforeach;
 
 #announcements ul, #course_material ul {
 	list-style: none;
+	margin:0;
+	padding:0;
 }
-
+#announcements ul li:first-child, #course_material ul li:first-child {
+    border-top:0;
+}
+#announcements ul li, #course_material ul li {
+    padding:0.25em 1em;
+    border-top:1px solid #CCC;
+}
 #announcements > h2, #course_material > h2 {
 	text-align: center;
 	font-weight: bold;
+    border-bottom:1px solid #999;
 }
+#announcements p, #course_material p {
+    margin:0;
+    padding:0 0 0.5em 0;
+} 
 
 #announcements ul li p {
 	font-size: .8em;
@@ -130,6 +143,29 @@ endforeach;
 }
 .monthNameText {
     color:#DDD;
+}
+
+.wec_calendarDayBox .description {
+    color:#373737;
+}
+.wec_calendarDayBox .description:hover div {
+    text-decoration:underline;
+}
+
+#todayButton {
+    float: right;
+    display: inline;
+    margin: 0;
+}
+#goToToday .button {
+    line-height: 1em;
+    box-shadow: inset 0 0 19px #fff;
+    border-radius: 2px;
+    padding: 0.25em;
+    border: 1px solid #EEE;
+    margin: 0 0 0.5em 0;
+    width: 7em;
+    height: 2em;
 }
 
 </style>
@@ -228,7 +264,6 @@ wp_reset_query();
 				echo $announcementTitle;
 				echo "</h2>";
 				echo wpautop($announcementContent);
-				echo "<hr />";
 			echo "</li>";
 	/*()
 		while ( have_posts() ) : the_post();
@@ -310,18 +345,31 @@ query_posts( array( 'post_type' => 'section' ) );
         while($queryObject->haveEvents()): $queryObject->the_event();
 	        //display some stuff
 	        ?>
-	        <div class="single-event-listing">
-	        <h3> <?php $queryObject->eventTitle(); ?></h3>
-	        <br />
-	        <div class="eventDate-topright"> <?php $queryObject->startDate('D, F jS, Y'); ?></div>
-	        <p class="eventLocation"><?php 
-	        $thisEventLocation = $queryObject->eventLocation();
-	        //echo "location: " . $thisEventLocation;
-	        ?>
-	        </p>
-	        <p class="eventDescription"> <?php $queryObject->eventDescription(); ?></p>
+	        <div id="<?php echo $queryObject->getEventID().$queryObject->getRecurrenceID(); ?>" class="single-event-listing">
+    	        <h3> <?php $queryObject->eventTitle(); ?></h3>
+    	        <br />
+    	        <div class="eventDate-topright"> <?php $queryObject->startDate('D, F jS, Y'); ?></div>
+    	        <p class="eventLocation"><?php 
+    	        $thisEventLocation = $queryObject->eventLocation();
+    	        //echo "location: " . $thisEventLocation;
+    	        if( function_exists( 'attachments_get_attachments' ) )
+                {
+                    $attachments = attachments_get_attachments($queryObject->getPostID());
+                    $total_attachments = count( $attachments );
+                    if( $total_attachments ) : ?>
+                        <ul class="attachments">
+                            Attachments
+                            <?php for( $i=0; $i<$total_attachments; $i++ ) : ?>
+                                <li><a href="<?php echo $attachments[$i]['location']; ?>" TARGET="_blank"><?php echo $attachments[$i]['title']; ?></a> - <caption><?php echo $attachments[$i]['caption']; ?></caption></li>
+                            <?php endfor; ?>
+                        </ul>
+                    <?php endif;
+                }
+    	        ?>
+    	        </p>
+    	        <p class="eventDescription"> <?php $queryObject->eventDescription(); ?></p>
 	        
-	        <hr />
+    	        <hr />
 	        </div>
 	        <?php
         endwhile;

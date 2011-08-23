@@ -883,6 +883,20 @@ class WEC_Query
     }
     
     //=========================================
+    function postID()
+    {
+        echo $this->getPostID();
+    }
+    function getPostID()
+    {
+        return $this->event->getPostID();
+    }
+    function thePostID()
+    {
+        $this->postID();
+    }
+    
+    //=========================================
     // recurrenceID
     //=========================================
     function recurrenceID()

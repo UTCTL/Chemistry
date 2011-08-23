@@ -58,7 +58,7 @@ jQuery(document).ready(function() {
             });
         }
     });
-    jQuery('.sortable').bind('click',function(e){
+    jQuery('.sortable, .sortable li').bind('mousedown',function(e){
         jQuery('.save_ordering').each(function(i,el){
             jQuery(el).removeAttr('disabled').removeClass('disabled');
         });

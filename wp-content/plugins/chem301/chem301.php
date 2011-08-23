@@ -247,10 +247,10 @@ function update_ordering($stuff) {
         if ($post['item_id'] == 'root') continue;
         if (empty($post['item_id']) || empty($post['parent_id'])) continue;
         if ($post['parent_id'] == 'root') {
-            echo $wpdb->update( 'wpv2_posts', array('menu_order'=>$i), array('ID'=>$post['item_id']) )."\n";
+            $wpdb->update( $wpdb->base_prefix.'posts', array('menu_order'=>$i), array('ID'=>$post['item_id']) )."\n";
             //echo "UPDATE wpv2_posts VALUES (menu_order=$i) WHERE ID={$post['item_id']}\n";
         } else {
-            echo $wpdb->update( 'wpv2_posts', array('post_parent'=>$post['parent_id'],'menu_order'=>$i), array('ID'=>$post['item_id']) )."\n";
+            $wpdb->update( $wpdb->base_prefix.'wp_posts', array('post_parent'=>$post['parent_id'],'menu_order'=>$i), array('ID'=>$post['item_id']) )."\n";
             //echo "UPDATE wpv2_posts VALUES (post_parent={$post['parent_id']}, menu_order=$i) WHERE ID={$post['item_id']}\n";
         }
     }

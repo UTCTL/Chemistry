@@ -64,7 +64,22 @@ body {
 	text-transform: uppercase;
 }
 
+.levela-disabled {
+	opacity: 0.5;
+	text-transform: uppercase;
+}
+
 #units > li > a {
+    text-align: left;
+    padding-left: 100px;
+    width: 138px;
+    height: 62px;
+    padding-top: 8px;
+    line-height: 48px;
+    padding-right: 13px;
+}
+
+#units > li > p {
     text-align: left;
     padding-left: 100px;
     width: 138px;
@@ -81,7 +96,8 @@ body {
 #gases,
 #atomic-theory-and-bonding,
 #intermolecular-forces,
-#thermodynamics {
+#thermodynamics, 
+#fundamentals {
 	list-style-type: none;
 	float: left;
 	width: 350px;
@@ -93,7 +109,23 @@ body {
 #gases > a,
 #atomic-theory-and-bonding > a,
 #intermolecular-forces > a,
-#thermodynamics > a {
+#thermodynamics > a,
+#fundamentals > a {
+	color: #fff !important;
+	position: relative;
+    text-decoration: none !important;
+    display: block;
+    width: 250px;
+    margin: 5px 0 0 0;
+	line-height: 49px;
+    text-align: center;
+}
+
+#gases > p,
+#atomic-theory-and-bonding > p,
+#intermolecular-forces > p,
+#thermodynamics > p,
+#fundamentals > p {
 	color: #fff !important;
 	position: relative;
     text-decoration: none !important;
@@ -105,30 +137,26 @@ body {
 }
 
 
-#gases > a{
+#gases > a, #gases > p {
     background:url(images/buttons/Unit1.png) no-repeat left top;
 }
 
-#atomic-theory-and-bonding > a {
+#atomic-theory-and-bonding > a, #atomic-theory-and-bonding > p {
     background:url(images/buttons/Unit2.png) no-repeat left top;
     line-height: 24px !important;
 }
 
-#intermolecular-forces{
-}
-
-#intermolecular-forces > a {
+#intermolecular-forces > a, #intermolecular-forces > p {
     background:url(images/buttons/Unit3.png) no-repeat left top;
     line-height: 24px !important;
 }
 
-#thermodynamics{
-
+#thermodynamics > a , #thermodynamics > p{
+    background:url(images/buttons/Unit4.png) no-repeat left top;
 }
 
-#thermodynamics > a {
-    background:url(images/buttons/Unit4.png) no-repeat left top;
-
+#fundamentals > a, #fundamentals > p {
+    background:url(images/buttons/Fundamentals.png) no-repeat left top;
 }
 
 
@@ -166,23 +194,12 @@ li.level2 {
     border-style:solid;
     border-width: 2px;
     border-color: #fff;
-/*    height: 25px;*/
     line-height: 1.1em !important;
 }
 
 .level2a:hover{
 	-webkit-box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 1);
 	-moz-box-shadow: inset 0 0 50px rgba(255, 255, 255, .3), 0 0 20px rgba(255, 255, 255, 0.8);
-    color: #fff !important;
-    text-decoration: none !important;
-    background-color: rgba(133, 162, 166, 0.5);
-    padding: 1em 0 1em 0.2em;
-    -moz-border-radius: 7px;
-    border-radius: 7px;
-    border-style:solid;
-    border-color: #fff;
-    /* width: 250px; */
-    line-height: 1.1em !important;
 }
 
 /* STYLE FOR DISABLED MODULES */

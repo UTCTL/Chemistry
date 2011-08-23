@@ -22,7 +22,7 @@ function wec_EditEvent($givenEventID = null) {
     $tagDA = new tagDA();
     
 	
-?>
+?>    
 <form method="post" action="<?php wec_currentURL ()?>?page=calendar.php">
     <div id="poststuff" class="metabox-holder has-right-sidebar">
         <div id="side-info-column" class="inner-sidebar">
@@ -328,6 +328,14 @@ function wec_EditEvent($givenEventID = null) {
                             </ul>
                         </td>
                     </tr>
+                    <tr valign="top">
+                        <th scrop="row">
+                            Attachments
+                        </th>
+                        <td>
+                            <?php attachments_add($event->getPostID()); ?>
+                        </td>
+                    </tr>
                     <?php } ?>
                 </table>
             </div>
@@ -335,7 +343,8 @@ function wec_EditEvent($givenEventID = null) {
     </div><input type="hidden" name="wec_action" value="updateEvent" /><input type="hidden" name="recurrenceID" value="<?php echo $recurrence->getID(); ?>"/><input type="hidden" name="eventID" value="<?php echo $event->getID(); ?>"/><?php wp_nonce_field('editEvent'); ?>
 </form>
 <form id="deleteEventForm" action="<?php wec_currentURL ()?>?page=calendar.php" method="post" style="display: inline;">
-    <input type="hidden" name="wec_action" value="deleteEvent" /><input type="hidden" name="eventID" value="<?php echo $event->getID(); ?>"/>
+    <input type="hidden" name="wec_action" value="deleteEvent" />
+    <input type="hidden" name="eventID" value="<?php echo $event->getID(); ?>"/>
 </form>
 <script type="text/javascript">
     document.getElementById('repeatForeverBox').style.display = "none";

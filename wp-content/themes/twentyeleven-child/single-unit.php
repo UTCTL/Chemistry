@@ -52,7 +52,7 @@ get_header(); ?>
                 color: #FFFFFF;
                 float:left;
                 line-height: 1.2em;
-                text-shadow: 0px 0px 1px white;
+                text-shadow: none;
             }
                 .section ul.external-resources, .section ul.attachments {    
                     list-style-position:inside;
@@ -163,25 +163,21 @@ get_header(); ?>
         	            ?>
             	        <div class="videos">
             	            <?php
-                    		foreach ($videos as $url) {
-                    		    $videoURLs[$url] = urlencode($url);
-                    		}
-                    		$videoURLs = implode(",", $videoURLs);
-                    		$stringToSend = "http://api.embed.ly/1/oembed?key=92481528b30711e0adda4040d3dc5c07&urls=" . $videoURLs;
-                    		echo $stringToSend;
-                    		$videos = json_decode(file_get_contents($stringToSend), True);
-            				$pattern = '/watch\?v\=/';
             	            foreach ($videos as $video) :
-                				if (preg_match($pattern, $video['url'], $matches)) {
-            						$video['url'] = preg_replace("/watch\?v\=/", "v/", $video['url']);
-            					}
+                				$tubeID = getID($q);
+								$tubeData = simplexml_load_file("http://gdata.youtube.com/feeds/api/videos/" . $tubeID);
+								
+								$tubeTitle = $tubeData->title;
+								$tubeDescription = $tubeData->content;
+								$tubeThumbNail = "http://i.ytimg.com/vi/". $tubeID ."/2.jpg";
+								$correctUrl = "http://www.youtube.com/v/" . $tubeID;
                     	        ?>
             	                <div class="video">
-            	                    <img class="thumb" src="<?php echo $video['thumbnail_url']; ?>" />
+            	                    <img class="thumb" src="<?php echo $tubeThumbNail; ?>" />
             	                    <div class="info_overlay">
-            	                        <div class="title"><?php echo ellipsis_end($video['title'],20); ?></div>
-            	                        <div class="description"><?php echo ellipsis_end($video['description'],20); ?></div>
-            	                        <div class="play">&raquo; <a rel="shadowbox[gallery];width=640;height=360;player=swf" href="<?php echo $video['url'] . "?fs=1"; ?>">play</a></div>
+            	                        <div class="title"><?php echo ellipsis_end($tubeTitle,20); ?></div>
+            	                        <div class="description"><?php echo ellipsis_end($tubeDescription,20); ?></div>
+            	                        <div class="play">&raquo; <a rel="shadowbox[gallery];width=640;height=360;player=swf" href="<?php echo $correctUrl . "?fs=1"; ?>">play</a></div>
             	                    </div>
             	                </div>
             	            <?php endforeach;?>

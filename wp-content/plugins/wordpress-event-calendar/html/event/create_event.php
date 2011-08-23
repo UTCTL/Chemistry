@@ -3,6 +3,7 @@ function wec_CreateEventScreen()
 {
 
     require_once ('event_boxes.php');
+    //require_once (WP_PLUGIN_URL . '/attachments/attachments.php');
 
     if (isset($_POST['date']))
     {
@@ -15,7 +16,6 @@ function wec_CreateEventScreen()
         <div id="side-info-column" class="inner-sidebar">
             <div id="side-sortables" class="meta-box-sortables ui-sortable">
                 <?php showPublishBox(); ?>
-               
                	<?php showTaxonomyBoxes(); ?>
     
             </div>
@@ -304,6 +304,14 @@ function wec_CreateEventScreen()
                     
                  
                     ?>
+                    <tr valign="top">
+                        <th scrop="row">
+                            Attachments
+                        </th>
+                        <td>
+                            <?php attachments_add(); ?>
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>

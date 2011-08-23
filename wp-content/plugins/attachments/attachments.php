@@ -116,8 +116,13 @@ function attachments_menu()
  * @return void
  * @author Jonathan Christopher
  */
-function attachments_add()
-{?>
+function attachments_add($post_id = NULL)
+{
+    if (empty($post_id)) {
+        $post_id = intval( $_GET['post'] );
+    }
+    
+    ?>
 
     <div id="attachments-inner">
 
@@ -138,10 +143,10 @@ function attachments_add()
                     <input type="hidden" name="attachments_nonce" id="attachments_nonce" value="<?php echo wp_create_nonce( plugin_basename(__FILE__) ); ?>" />
                     <ul>
                         <?php
-                    if( !empty($_GET['post']) )
+                    if( !empty($post_id) )
                     {
                         // get all attachments
-                        $existing_attachments = attachments_get_attachments( intval( $_GET['post'] ) );
+                        $existing_attachments = attachments_get_attachments( $post_id );
 
                         if( is_array($existing_attachments) && !empty($existing_attachments) )
                         {

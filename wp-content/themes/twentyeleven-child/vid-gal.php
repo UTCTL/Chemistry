@@ -6,6 +6,7 @@ Template Name: Video Gallery
 
 <?php get_header(); ?>
 
+
 <style>
 
 #content {
@@ -94,13 +95,22 @@ query_posts( array( 'post_type' => 'submodule' ) );
 
 <div id="content" class="widecolumn">
     
+    
     <div id="wrap">
 	<ul id="video_list">
     <?php
-     // The Loop
+    $stringU = "http://gdata.youtube.com/feeds/api/videos/ZVbk47X49eM";
+    $testTube = simplexml_load_file($stringU);
+    //$testTube = 'https://gdata.youtube.com/feeds/api/videos/qkCDjyoX?v=2';
+    //var_dump($testTube);
+    //echo $testTube->title[0];
+        
+    // The Loop
     $videosUsed = array();	//var_dump($lectureText);
 	
     while ( have_posts() ) : the_post();
+    
+    	
     	$listOfUrls = array();
     	$parent = $post -> post_parent;
     	$parentPost = get_post($parent);
@@ -109,30 +119,22 @@ query_posts( array( 'post_type' => 'submodule' ) );
     	$parentsUnit = $parentPost -> post_parent;
     	$parentUnitPost = get_post($parentsUnit);
     	$thisUnit = $parentUnitPost -> post_title;
-    	//echo $thisTitle;
-    	//echo $parent;
-    	//$unit = end(get_the_terms( $post -> ID, 'unit'));
-    	//var_dump($unit);
+    	
     	$title = the_title('', '', false);
 
     	$urlsArray = field_get_meta('url-link', false, $post->ID); // key, return 1 result, post ID
-    	//OLD ONE $lectureText = field_get_meta('lecture-text', false, $post->ID);
 		//preg_match_all($urlTest, $lectureText[0], $urlsArray);
-		//echo '<br />###############<br />'; urlencode	
+
+		
 		/*
-		http://api.embed.ly/1/oembed?
-		key=:key&url=:url&maxwidth=:maxwidth&maxheight=:maxheight&format=:format&callback=:callback
-		*/
-		//var_dump($urlsArray);
+		//cutting old part out
 		foreach ($urlsArray as $val) {
 		    $listOfUrls[$val] = urlencode($val);
 		}
 		//var_dump($listOfUrls);
 		
 	     
-		
 		$embedlyUrls = implode(",", $listOfUrls);
-		//echo $embedlyUrls;
 		$stringToSend = "http://api.embed.ly/1/oembed?key=92481528b30711e0adda4040d3dc5c07&urls=" . $embedlyUrls;
 		//echo $stringToSend;
 		$embedlyContents = file_get_contents($stringToSend);
@@ -140,17 +142,71 @@ query_posts( array( 'post_type' => 'submodule' ) );
 		
 		for($i = 0; $i < count($embedlyObjects); $i+=1){
 			$obj = $embedlyObjects[$i];
-			//var_dump($obj);
 			$url = $obj['type'];
 			if ($url!="video"){
-				
-				//$newObject = $obj['url'];
-				//$urlLinksArray[] = $newObject;
 				unset($embedlyObjects[$i]);
 			}
+		}*/
+		//end of cutting old part out
+		
+		
+		//new approach using youtube api rather than embedly
+		//to be done
+			
+		/*foreach ($urlsArray as $val) {
+		    $listOfUrls[$val] = urlencode($val);
 		}
 		
-		foreach($embedlyObjects as $q)
+	     
+		$embedlyUrls = implode(",", $listOfUrls);
+		$stringToSend = "http://api.embed.ly/1/oembed?key=92481528b30711e0adda4040d3dc5c07&urls=" . $embedlyUrls;
+		
+		$embedlyObjects = json_decode(file_get_contents($stringToSend), True);
+		
+		for($i = 0; $i < count($embedlyObjects); $i+=1){
+			$obj = $embedlyObjects[$i];
+			$url = $obj['type'];
+			if ($url!="video"){
+				unset($embedlyObjects[$i]);
+			}
+		}*/
+		
+		foreach($urlsArray as $q) :
+		
+    		$videoInfo = Array();
+			
+			if($q != '') {
+				$tubeID = getID($q);
+				$tubeData = simplexml_load_file("http://gdata.youtube.com/feeds/api/videos/" . $tubeID);
+				$tubeTitle = $tubeData->title;
+				$tubeDescription = $tubeData->content;
+				$tubeThumbNail = "http://i.ytimg.com/vi/". $tubeID ."/2.jpg";
+				//echo "ID is " . $tubeID . "\n" . "title is " . $tubeTitle . "\n" . "description is " . $tubeDescription;
+				//echo "thumbnail url " . $tubeThumbNail;
+				$correctUrl = "http://www.youtube.com/v/" . $tubeID;
+
+				?>
+				<li class="thumbnail_gallery">
+					<a rel="shadowbox[gallery];width=640;height=360;player=swf;" class="vid_gallery" href="<?php echo $correctUrl . "?fs=1"; ?>"><img src="<?php echo $tubeThumbNail ?>" /></a>
+					<div class ="title_description">
+    					<div class="caption">
+    						<h4><?php echo $thisUnit; echo " > ". $thisTitle; ?></h4>
+    						<h3><?php echo $tubeTitle; ?></h3>
+    					</div>
+    					<div class="vid_gal_description">
+    						<?php echo $tubeDescription; ?>
+    					</div>
+					</div>
+				</li>
+    			<?php
+    		}
+		endforeach;
+		
+		//end of new approach	
+		
+		
+		
+		/*foreach($embedlyObjects as $q)
     		{
     			if($q != '') {
     			//echo "<p>" . $q['url'] . "</p>";
@@ -174,7 +230,7 @@ query_posts( array( 'post_type' => 'submodule' ) );
         					</li>
     					<?php
     				}
-    		}
+    		}*/
     endwhile;
 		    	    
     wp_reset_query();

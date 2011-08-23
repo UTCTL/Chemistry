@@ -219,6 +219,14 @@ class eventHandler
             $tempEvent->setPostID(wp_insert_post($post));
             //Add the event, get the event ID from the add method
             $eventID = $tempEvent->add();
+            
+            
+    		//============================
+    		// Save attachments
+    		//============================
+    		attachments_save($post->ID);
+
+            
             //If the user specified a list of calendars that this event belongs to, then store that
             
             if (isset($_POST['categoryList']))
@@ -297,6 +305,11 @@ class eventHandler
         
         wp_update_post($post);
 		
+		
+		//============================
+		// Update attachments
+		//============================
+		attachments_save($post->ID);
 		
 		
         //===================================================

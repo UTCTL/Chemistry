@@ -35,6 +35,14 @@ get_header();
 		{
 			echo    '<a class="levela" href="'.$post->guid.'">'.$post->post_title.'</a>';
         	echo '<ul>';
+		}
+			
+		else
+		{
+			echo    '<p class="levela-disabled">'.$post->post_title.'</p>';
+        	echo '<ul>';
+		}
+
 			$modules = get_children( array('post_parent' => $post->ID, 'post_type' => 'module','orderby'=>'menu_order','order'=>'ASC') );
 		
     	foreach ($modules as $module) {
@@ -74,7 +82,6 @@ get_header();
     	
     	echo    '</ul>';
     	echo '</li>';
-		}
 
     endwhile;
 
