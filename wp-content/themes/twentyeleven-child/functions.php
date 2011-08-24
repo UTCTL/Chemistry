@@ -715,9 +715,14 @@ function my_show_columns($name, $ID) {
 //retrieves the ID from a youtube url
 function getID($url) {
 	if (preg_match('%(?:youtube\.com/(?:user/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
-	    $id = $match[1];
-	    return $id;
+	    return $match[1];
 	}
-	return "None";
+	else {
+		if (preg_match('%(?:youtube\.com/(?:user/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
+	    	return $match[0];
+		}else {
+			return "none";
+		}
+	}
 }
 

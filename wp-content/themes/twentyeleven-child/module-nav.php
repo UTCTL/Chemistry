@@ -4,6 +4,8 @@
     padding: 1em;
     margin:0;
     background-color: rgba(255, 255, 255, .15);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#26FFFFFF,endColorstr=#26FFFFFF)"; /* IE8 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#26FFFFFF,endColorstr=#26FFFFFF);   /* IE6 & 7 */
     box-shadow:0 0 22px rgba(0,0,0,0.5);
     border-radius: 1.5em 0 1em 0;
     position: relative;
@@ -39,7 +41,7 @@
     
     #module-nav a.current_page {
         color:#EBA711;
-        text-decoration:underline   ;
+        //text-decoration:underline   ;
     }
     
 </style>

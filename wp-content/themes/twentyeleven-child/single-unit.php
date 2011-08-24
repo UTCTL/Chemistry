@@ -163,7 +163,7 @@ get_header(); ?>
         	            ?>
             	        <div class="videos">
             	            <?php
-            	            foreach ($videos as $video) :
+            	            foreach ($videos as $q) :
                 				$tubeID = getID($q);
 								$tubeData = simplexml_load_file("http://gdata.youtube.com/feeds/api/videos/" . $tubeID);
 								
@@ -182,24 +182,39 @@ get_header(); ?>
             	                </div>
             	            <?php endforeach;?>
         	            </div>    
-            	        <div class="post-content">
         	            <?php }
-
-                        if( function_exists( 'attachments_get_attachments' ) )
-                        {
-                            $attachments = attachments_get_attachments($post->ID);
-                            $total_attachments = count( $attachments );
-                            if( $total_attachments ) : ?>
-                                <ul class="attachments">
-                                    Attachments
-                                    <?php for( $i=0; $i<$total_attachments; $i++ ) : ?>
-                                        <li><a href="<?php echo $attachments[$i]['location']; ?>" TARGET="_blank"><?php echo $attachments[$i]['title']; ?></a> - <caption><?php echo $attachments[$i]['caption']; ?></caption></li>
-                                    <?php endfor; ?>
-                                </ul>
-                            <?php endif;
-                        }
-            	        
+        	            
+                        
+                        $attachments = attachments_get_attachments($post->ID);
+                		$selected_html_page_ids = get_post_meta($post->ID, 'html-pages');
+                		if (!empty($selected_html_page_ids[0])) {
+                    		$html_pages = get_pages(array('post_type'=>'html-page','include'=>$selected_html_page_ids[0]));
+                		} else {
+                		    $html_pages = array();
+                		}
+                        $total_attachments = count( $attachments ) + count( $html_pages );
+                        
         	            $resources = field_get_meta('additional-resources', false, $submodule->ID);
+                        
+                        
+                        if ($total_attachments || (!empty($resources) && !empty($resources[0]))) { ?>
+                	        <div class="post-content">
+            	        <?php }
+                        
+                        
+                        if( $total_attachments ) : ?>
+                            <ul class="attachments">
+                                Attachments
+                                <?php for( $i=0; $i<count( $attachments ); $i++ ) : ?>
+                                    <li><a href="<?php echo $attachments[$i]['location']; ?>" TARGET="_blank"><?php echo $attachments[$i]['title']; ?></a> - <caption><?php echo $attachments[$i]['caption']; ?></caption></li>
+                                <?php endfor; ?>
+                                <?php
+                        		foreach($html_pages as $aPage) { ?>
+                        			<li><a target='_blank' href="<?php echo $aPage->guid; ?>"><?php echo $aPage->post_title ?></a></li>
+                        		<?php } ?>
+                            </ul>
+                        <?php endif;
+            	        
         	            if (count($resources) > 0) { ?>
                 	        <ul class="external-resources">
                 	        	<?php
@@ -207,7 +222,6 @@ get_header(); ?>
 									{
 										echo "External Resources:";
 									}
-									
 									
 								foreach ($resources as $resource) :
                 	                preg_match_all('#\bhttps?://[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/))#', $resource, $url);
@@ -223,11 +237,15 @@ get_header(); ?>
 									
 									endforeach; ?>
                 	        </ul>
+            	        <?php }
+            	        
+            	        
+                        if ($total_attachments || (!empty($resources) && !empty($resources[0]))) { ?>
+                	        </div>
             	        <?php } ?>
-            	        </div>
 						
 					</div><!-- .entry-content -->
-
+                </article>
 			</div><!-- #content -->
 		</div><!-- #primary -->
 

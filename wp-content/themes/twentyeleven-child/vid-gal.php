@@ -90,7 +90,7 @@ li.thumbnail_gallery img {
 
 <?php
 // The Query
-query_posts( array( 'post_type' => 'submodule' ) );
+query_posts( array( 'post_type' => array('submodule', 'unit') ) );
 ?>
 
 <div id="content" class="widecolumn">
@@ -110,7 +110,18 @@ query_posts( array( 'post_type' => 'submodule' ) );
 	
     while ( have_posts() ) : the_post();
     
+    	//var_dump($post);
+    	//var_dump(get_post_type($post));
     	
+    	
+    	/*$post_type = $post->post_type;
+        if ($post_type == 'submodule') {
+            echo "submodule";
+        } else if ($post_type == 'unit') {
+        	echo "unit";
+                //$result_ids[] = $result->ID;
+        }*/
+	    
     	$listOfUrls = array();
     	$parent = $post -> post_parent;
     	$parentPost = get_post($parent);
@@ -123,6 +134,7 @@ query_posts( array( 'post_type' => 'submodule' ) );
     	$title = the_title('', '', false);
 
     	$urlsArray = field_get_meta('url-link', false, $post->ID); // key, return 1 result, post ID
+    	//var_dump($urlsArray);
 		//preg_match_all($urlTest, $lectureText[0], $urlsArray);
 
 		

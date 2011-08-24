@@ -29,7 +29,7 @@
 	 * Print the <title> tag based on what is being viewed.
 	 */
 	global $page, $paged;
-
+    
 	wp_title( '|', true, 'right' );
 
 	// Add the blog name.
@@ -75,48 +75,54 @@
             width:60em;
         }
         #banner {
-            height:5.314em;
+            height:0em;
             position:relative;
             padding: 3.593em 0 4.593em 0;
         }    
             #banner #header_icon {
                 margin:0 auto;
-                top:-3.4em;
+                top:-2.5em;
                 background:url(<?php echo get_template_directory_uri(); ?>/images/HeaderIcon.png);
-                height:12.4375em;
-                width:10.875em;
+                height:9.1em;
+                width:8em;
                 position: relative;
             }
             
             #banner #header_icon > a{
                 margin:0 auto;
-                top:-3.4em;
+                top:0.20em;
                 display: block;
-                height:15.7em;
-                width:10.875em;
+                height:9.1em;
+                width:8em;
                 position: relative;
             }
                 #banner #nav1, #banner #nav2 {
-                    height:1.5005em;
-                    background-color:rgba(26,84,91,0.4);
-                    border-width:3px 0;
-                    border-style:solid;
-                    border-color:rgba(255,255,255,0.3);
-                    box-shadow:0 0 1.797em rgba(0,0,0,0.5);
-                    position:relative;
-                    list-style:none;
-                    padding:1.906em 0;                
-                    position:absolute;
-                    margin:0;
-                    width:23em;
+                    height:0.2em;
+                    background-color: rgba(26,84,91,0.4);
+                    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#661A545B,endColorstr=#661A545B)"; /* IE8 */
+                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#661A545B,endColorstr=#661A545B);   /* IE6 & 7 */
+                    border-width: 3px 0;
+                    border-style: solid;
+                    border-color: rgba(255,255,255,0.3);
+                    -moz-box-shadow: 0 0 1.797em rgba(0,0,0,0.5);
+                    -webkit-box-shadow: 0 0 1.797em rgba(0,0,0,0.5);
+                    box-shadow: 0 0 1.797em rgba(0,0,0,0.5);
+                    position: relative;
+                    list-style: none;
+                    padding: 2.0em 0 1.8em 0;               
+                    position: absolute;
+                    margin: 0;
+                    width: 24.19em;
                 }        
                     #banner #nav1 li, #banner #nav2 li {
                         display:block;
                         float:left;
+                        margin-top: -1em;
                     }
                     #banner #nav2 li.search {
                         padding-left:0;
                         margin-left:2em;
+                        margin-top: -0.7em;
                     }
                         #banner #nav1 li a, #banner #nav2 li a {
                             color:#FFFFFF;
@@ -152,16 +158,45 @@
                     background-color:rgba(103, 165, 172, 0.3);
                     font-size:0.8em;
                     position:relative;
-                    top:-0.4em;
+                    top:-0.6em;
                     color:#FFFFFF;
                 }
+        #cns_link, #cns_link:hover {
+            background:url(<?php echo get_template_directory_uri(); ?>/images/natsci.jpg) no-repeat 5px center;
+            display: inline;
+            color: #000;
+            text-decoration: none;
+            padding-left: 2.5em;
+            padding-top: 1em;
+            padding-bottom: 1em;
+        }
+               
+        
     </style>
 <script type="text/javascript"
    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+   
+    var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25328401-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 </script>
 </head>
 
 <body <?php body_class(); ?>>
+<div id="top_branding">
+    <div id="branding_frame">
+    	<a id = "cns_link" href="http://cns.utexas.edu" target="blank">
+	        <!-- College of Natural Sciences image -->
+	        <span>College of Natural Sciences</span>
+      </a>
+    </div>
+</div>
 <div id="page" class="hfeed">
 	<header id="banner" role="banner">
         <ul id="nav1">

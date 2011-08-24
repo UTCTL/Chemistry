@@ -44,7 +44,7 @@ get_header(); ?>
                 color: #FFFFFF;
                 float:left;
                 line-height: 1.2em;
-                text-shadow: 0px 0px 1px white;
+                text-shadow: none;
             }
             .section .submodule .submodule-content {
                 
@@ -228,13 +228,23 @@ get_header(); ?>
                         if( function_exists( 'attachments_get_attachments' ) )
                         {
                             $attachments = attachments_get_attachments($post->ID);
-                            $total_attachments = count( $attachments );
+                    		$selected_html_page_ids = get_post_meta($post->ID, 'html-pages');
+                    		if (!empty($selected_html_page_ids[0])) {
+                        		$html_pages = get_pages(array('post_type'=>'html-page','include'=>$selected_html_page_ids[0]));
+                    		} else {
+                    		    $html_pages = array();
+                    		}
+                            $total_attachments = count( $attachments ) + count( $html_pages );
                             if( $total_attachments ) : ?>
                                 <ul class="attachments">
                                     Attachments
-                                    <?php for( $i=0; $i<$total_attachments; $i++ ) : ?>
+                                    <?php for( $i=0; $i<count( $attachments ); $i++ ) : ?>
                                         <li><a href="<?php echo $attachments[$i]['location']; ?>" TARGET="_blank"><?php echo $attachments[$i]['title']; ?></a> - <caption><?php echo $attachments[$i]['caption']; ?></caption></li>
-                                    <?php endfor; ?>
+                                    <?php endfor; ?>    
+                                    <?php
+                            		foreach($html_pages as $aPage) { ?>
+                            			<li><a target='_blank' href="<?php echo $aPage->guid; ?>"><?php echo $aPage->post_title ?></a></li>
+                            		<?php } ?>
                                 </ul>
                             <?php endif;
                         }
@@ -284,11 +294,27 @@ get_header(); ?>
                     	            <?php } ?>
                     	        </div>
                     	        
-                    	        <div class="submodule-post-content">
+                	            
+                	            <?php
+                	            $question = end(field_get_meta('question', false, $submodule->ID));
+                	            
+                                $attachments = attachments_get_attachments($submodule->ID);
+                        		$selected_html_page_ids = get_post_meta($submodule->ID, 'html-pages');
+                        		if (!empty($selected_html_page_ids[0])) {
+                            		$html_pages = get_pages(array('post_type'=>'html-page','include'=>$selected_html_page_ids[0]));
+                        		} else {
+                        		    $html_pages = array();
+                        		}
+                                $total_attachments = count( $attachments ) + count( $html_pages );
+                        		
+                	            $resources = field_get_meta('additional-resources', false, $submodule->ID);
+
+                                    
+                                if (!empty($question) || $total_attachments || (!empty($resources) && !empty($resources[0]))) { ?>
+                    	            <div class="submodule-post-content">
+                    	        <?php } ?>
                     	            
-                    	            <?php
-                    	            $question = end(field_get_meta('question', false, $submodule->ID));
-                    	            if (!empty($question)) { ?>
+                    	            <?php if (!empty($question)) { ?>
                             	        <div class="quiz">
                             	            <div class="question">
                             	                <?php echo $question; ?> <span class="show_hide">(show/hide answer)</span>
@@ -306,21 +332,21 @@ get_header(); ?>
                             	        </div>
                         	        <?php }
                         	        
-                                    if( function_exists( 'attachments_get_attachments' ) )
-                                    {
-                                        $attachments = attachments_get_attachments($submodule->ID);
-                                        $total_attachments = count( $attachments );
-                                        if( $total_attachments ) : ?>
-                                            <ul class="attachments">
-                                                Attachments
-                                                <?php for( $i=0; $i<$total_attachments; $i++ ) : ?>
-                                                    <li><a href="<?php echo $attachments[$i]['location']; ?>" TARGET="_blank"><?php echo $attachments[$i]['title']; ?></a> - <caption><?php echo $attachments[$i]['caption']; ?></caption></li>
-                                                <?php endfor; ?>
-                                            </ul>
-                                        <?php endif;
-                                    }
+                                    
+                                    if( $total_attachments ) : ?>
+                                        <ul class="attachments">
+                                            Attachments
+                                            <?php for( $i=0; $i<count( $attachments ); $i++ ) : ?>
+                                                <li><a href="<?php echo $attachments[$i]['location']; ?>" TARGET="_blank"><?php echo $attachments[$i]['title']; ?></a> - <caption><?php echo $attachments[$i]['caption']; ?></caption></li>
+                                            <?php endfor; ?>
+                                            <?php
+                                    		foreach($html_pages as $aPage) { ?>
+                                    			<li><a target='_blank' href="<?php echo $aPage->guid; ?>"><?php echo $aPage->post_title ?></a></li>
+                                    		<?php } ?>
+                                        </ul>
+                                    <?php endif;
+                                        
                         	        
-                    	            $resources = field_get_meta('additional-resources', false, $submodule->ID);
                     	            if (!empty($resources) && !empty($resources[0])) { ?>
                             	        <ul class="external-resources">
                     	                External Resources
@@ -333,14 +359,17 @@ get_header(); ?>
                             	            <li><a href="<?php echo $url; ?>"><?php echo $short_url; ?></a> - <?php echo $desc; ?></li>
                         	            <?php endforeach; ?>
                             	        </ul>
-                        	        <?php } ?>
-                    	        </div>
+                        	        <?php }
+                        	        
+                                if (!empty($question) || $total_attachments || (!empty($resources) && !empty($resources[0]))) { ?>
+                    	            </div>
+                    	        <?php } ?>
                     	    </div>
                     	
                     	<?php endforeach; ?>
 					
 					</div><!-- .entry-content -->
-
+                </article>
 			</div><!-- #content -->
 		</div><!-- #primary -->
 

@@ -300,7 +300,31 @@
     font-size: 1.2em;
 }
 
+
 .attachment-post-thumbnail {
     background-color: #666;
     padding: 1em;
+}
+
+.media-item .pinkynail {
+background-color: #666;
+}
+
+.media-icon a img{
+	background-color: #666;
+}
+
+.column-icon a img{
+	background-color: #666;
+}
+
+#adminmenuback, #adminmenuwrap, #adminmenu, .js.folded #adminmenu .wp-submenu.sub-open, .js.folded #adminmenu .wp-submenu-wrap {
+    width: 150px;
+}
+#wpcontent, #footer {
+    margin-left: 170px;
+}
+
+#htmlpages li input {
+    margin-right:0.5em;
 }

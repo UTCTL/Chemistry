@@ -57,12 +57,12 @@ endforeach;
 
 #announcements .scrolling {
 	overflow:auto;
-	height: 260px;
+	height: 318px;
 }
 
 #course_material .scrolling {
 	overflow:auto;
-	height: 73px;
+	height: 318px;
 }
 
 #announcements ul, #course_material ul {
@@ -87,7 +87,7 @@ endforeach;
     padding:0 0 0.5em 0;
 } 
 
-#announcements ul li p {
+#announcements ul li p, #announcements ul li a {
 	font-size: .8em;
 }
 
@@ -98,6 +98,7 @@ endforeach;
 #course_material {
 	width: 30%;
 	background-color:#F0F0F0;
+	clear:none;
 	float:right;
 	margin: 15px 15px 0 0;
 }
@@ -107,8 +108,8 @@ endforeach;
 }
 
 #calendar-list {
-    clear: both;
-    width: 58em;
+    clear: none;
+    width: 37em;
     float: left;
     margin: 0 1em;
     color: #FAFAFA;
@@ -132,8 +133,16 @@ endforeach;
 	
 }
 
-.single-event-listing {
+.xxxsingle-event-listing {
 	min-height: 60px;
+}
+
+.eventData, p.eventLocation {
+	padding-left:.5em;
+}
+
+.eventDate-topright {
+	font-size: .9em;
 }
 
 
@@ -240,22 +249,26 @@ wp_reset_query();
 	<?php 
 	
 		foreach ($announcements as $ann) :
+		
+			$selected_ann_html_page_ids = get_post_meta($ann->ID, 'html-pages');
+			//var_dump($ann);
+			if (!empty($selected_ann_html_page_ids[0])) {
+				$html_ann_pages = get_pages(array('post_type'=>'html-page','include'=>$selected_ann_html_page_ids[0]));
+				} else {
+				$html_ann_pages = array();
+			}
 			$announcementTitle = $ann ->post_title;
 			$announcementContent = $ann -> post_content;
 			
 			$sectionID = $ann -> post_parent;
     		$sectionPost = get_post($sectionID);
-    		//echo "section id is >>>> " . $sectionID . " ";
     		$sectionTitle = $sectionPost -> post_title;
-    		//echo "section title is >>>> " . $sectionTitle . " ";
     		
     		$divName;
     		if ($sectionID === 0) :
     			$divName = "allSections"; //no specific section for this professor
-    			//echo "was zero " . $divName;
     		else:
     			$divName = $sectionTitle;
-    			//echo "was not" . $divName;
     		endif;
 			
 			//list the announcement titles and content in divs of their section name
@@ -264,6 +277,9 @@ wp_reset_query();
 				echo $announcementTitle;
 				echo "</h2>";
 				echo wpautop($announcementContent);
+				foreach($html_ann_pages as $aPage) {
+					echo "<a target='_blank' href=" . $aPage->guid . ">". $aPage->post_title . "</a>" . "<br />";
+				}
 			echo "</li>";
 	/*()
 		while ( have_posts() ) : the_post();
@@ -303,6 +319,8 @@ wp_reset_query();
 wp_reset_query();
 // The Query
 query_posts( array( 'post_type' => 'section' ) );
+
+
 ?>
 
 <div id="course_material" class="startAsHide">
@@ -310,23 +328,43 @@ query_posts( array( 'post_type' => 'section' ) );
 	<div class="scrolling">
 	<ul>
 	<?php while ( have_posts() ) : the_post(); ?>
-		<li><?php
-			
-			//echo "<h3>" . $post ->post_title  . "</h3>";
-			$attachments = attachments_get_attachments();
-			$totalAttachments = count($attachments);
-			if ($totalAttachments) :
+	    
+		<?php
+		$selected_html_page_ids = get_post_meta($post->ID, 'html-pages');
+		if (!empty($selected_html_page_ids[0])) {
+			$html_pages = get_pages(array('post_type'=>'html-page','include'=>$selected_html_page_ids[0]));
+			} else {
+			$html_pages = array();
+		}
+		if (!empty($html_pages)) { ?>
+		    <li>
+		    <?php
+        		//$html_pages = get_pages(array('post_type'=>'html-page','include'=>$selected_html_page_ids[0]));
+        		foreach($html_pages as $aPage) {
+        			echo "<a target='_blank' href=" . $aPage->guid . ">". $aPage->post_title . "</a>" . "<br />";
+        		}
+    		?>
+		    </li>
+		<?php }
+					
+		//echo "<a target='_blank' href=" . $attachments[$i]['location'] . ">". $attachments[$i]['title'] . "</a>" . " - " . $attachments[$i]['caption'] . "<br />";
+		//echo "<h3>" . $post ->post_title  . "</h3>";
+		$attachments = attachments_get_attachments();
+		$totalAttachments = count($attachments);
+		if ($totalAttachments) : ?>
+		    <li>
+		    <?php
 				for($i=0; $i < $totalAttachments; $i++):
 					echo "<a target='_blank' href=" . $attachments[$i]['location'] . ">". $attachments[$i]['title'] . "</a>" . " - " . $attachments[$i]['caption'] . "<br />";
 				endfor;
-			endif;
-			
-		?></li>
+			?>
+			</li>
+		<?php endif; ?>
+		
 	<?php endwhile; ?>
 	</ul>
 	</div>
 </div><!-- #course_material -->
-
 
 <div id="calendar-list">
 <br />
@@ -346,18 +384,21 @@ query_posts( array( 'post_type' => 'section' ) );
 	        //display some stuff
 	        ?>
 	        <div id="<?php echo $queryObject->getEventID().$queryObject->getRecurrenceID(); ?>" class="single-event-listing">
-    	        <h3> <?php $queryObject->eventTitle(); ?></h3>
-    	        <br />
     	        <div class="eventDate-topright"> <?php $queryObject->startDate('D, F jS, Y'); ?></div>
-    	        <p class="eventLocation"><?php 
-    	        $thisEventLocation = $queryObject->eventLocation();
+    	        <h3 class="eventData" style="float:left;"> <?php $queryObject->eventTitle(); ?></h3>
+    	        <br />
+    	        <p class="eventLocation" class="eventData"><?php 
+    	        $queryObject->eventLocation();
+    	        ?>
+    	        </p> 
+    	        <?php
     	        //echo "location: " . $thisEventLocation;
     	        if( function_exists( 'attachments_get_attachments' ) )
                 {
                     $attachments = attachments_get_attachments($queryObject->getPostID());
                     $total_attachments = count( $attachments );
                     if( $total_attachments ) : ?>
-                        <ul class="attachments">
+                        <ul class="eventData" class="attachments">
                             Attachments
                             <?php for( $i=0; $i<$total_attachments; $i++ ) : ?>
                                 <li><a href="<?php echo $attachments[$i]['location']; ?>" TARGET="_blank"><?php echo $attachments[$i]['title']; ?></a> - <caption><?php echo $attachments[$i]['caption']; ?></caption></li>
@@ -367,7 +408,7 @@ query_posts( array( 'post_type' => 'section' ) );
                 }
     	        ?>
     	        </p>
-    	        <p class="eventDescription"> <?php $queryObject->eventDescription(); ?></p>
+    	        <p class="eventData" class="eventDescription"> <?php $queryObject->eventDescription(); ?></p>
 	        
     	        <hr />
 	        </div>

@@ -11,7 +11,6 @@
  * @package WordPress
  * @subpackage Twenty_Eleven
  */
-query_posts( $arr = array ('post_type' => 'unit', 'posts_per_page' => '100','orderby'=>'menu_order','order'=>'ASC'));
 
 
 get_header(); 
@@ -24,6 +23,8 @@ get_header();
     <ul id="units">
 
     <?php
+    
+    query_posts( $arr = array ('post_type' => 'unit', 'posts_per_page' => '100','orderby'=>'menu_order','order'=>'ASC'));
 
     $postArr = array();
     while ( have_posts() ) : the_post();

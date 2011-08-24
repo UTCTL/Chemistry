@@ -636,6 +636,36 @@ table.fc-border-separate {
 	_overflow: hidden;
 	}
 	
+
+body {
+    padding:0;
+}
+
+
+#top_branding {
+    background: #868686; /* Old browsers */
+    background: -moz-linear-gradient(left, #868686 0%, #c7c7c7 50%, #868686 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#868686), color-stop(50%,#c7c7c7), color-stop(100%,#868686)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, #868686 0%,#c7c7c7 50%,#868686 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, #868686 0%,#c7c7c7 50%,#868686 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(left, #868686 0%,#c7c7c7 50%,#868686 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#868686', endColorstr='#868686',GradientType=1 ); /* IE6-9 */
+    background: linear-gradient(left, #868686 0%,#c7c7c7 50%,#868686 100%); /* W3C */
+    height: 34px;
+    position:relative;
+    border-bottom:1px solid rgba(74,74,74,0.5);
+}
+    #branding_frame {
+        height: 34px;
+        width: 950px;
+        margin: 0 auto;
+        padding: 0px;
+    }
+        #branding_frame span {
+            line-height:34px;
+        }
+
+
 	
 	
 .calendar_content {
@@ -651,6 +681,10 @@ table.fc-border-separate {
 
 #units li ul li > p, #units li ul li > a {
     padding-left:5px !important;
+}
+
+.section #content a {
+    text-shadow:none;
 }
 
 
@@ -703,7 +737,7 @@ table.fc-border-separate {
             background-color:#85A2A6;
             padding:0.25em 0.5em 0.25em 0.25em !important;
             border-radius:3px;
-            width: 6.7em;
+            width: 6.5em;
             margin:0 0.3em 0.3em !important;
             
         }
@@ -712,3 +746,11 @@ table.fc-border-separate {
                 position: absolute;
                 right: 0;
             }
+           
+td.wec_calendarDayBox {
+	height:75px;
+	margin:0;
+	padding:0;
+	border-left-style: solid; 
+	border-left-width: 1px;
+}

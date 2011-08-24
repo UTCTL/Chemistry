@@ -260,7 +260,7 @@ function wec_calendar_user_view($currentPage)
             {
                 
         ?>
-        <td height="75px" style="border-left-style: solid; border-left-width: 1px;" class="wec_calendarDayBox"<?php if (isset($calendar->month[$i][$j]['dayNumber'])) { ?> id="dayOfMonthNumber<?php echo $calendar->month[$i][$j]['dayNumber'];?>"<?php } ?>>
+        <td class="wec_calendarDayBox"<?php if (isset($calendar->month[$i][$j]['dayNumber'])) { ?> id="dayOfMonthNumber<?php echo $calendar->month[$i][$j]['dayNumber'];?>"<?php } else {?> style="height:1em;"<?php } ?>>
             <?php 
             if (isset($calendar->month[$i][$j]['dayNumber']))
             {

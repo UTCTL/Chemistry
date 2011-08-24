@@ -76,8 +76,8 @@ function chem301_enable_module() {
 
 function chem301_enable_box()
 {
-    add_meta_box( 'module_enable', 'Schedule', 'chem301_enable_module', 'module', 'side' );
-	add_meta_box( 'module_enable', 'Schedule', 'chem301_enable_module', 'unit', 'side' );
+    add_meta_box( 'module_enable', 'Enable Module', 'chem301_enable_module', 'module', 'side' );
+	add_meta_box( 'module_enable', 'Enable Unit', 'chem301_enable_module', 'unit', 'side' );
 }
 
 
@@ -91,7 +91,10 @@ function chem301_enable_box()
  */
 function chem301_save($post_id)
 {
-    update_post_meta( $post_id, 'enable_module', $_POST['enable_module']);
+    update_post_meta( $post_id, 'enable_module', $_POST['enable_module']         );
+    update_post_meta( $post_id, 'html-pages'   , implode(',',$_POST['htmlpage']) );
+    //var_dump(implode(',',$_POST['htmlpage']));
+    //exit();
 }
 
 
@@ -137,14 +140,6 @@ function init_template_files() {
 
 ///////////////////
 
-
-// boxes within lecture editor
-function init_backend() {
-	//register_taxonomy_for_object_type('unit', 'lecture');
-	register_taxonomy_for_object_type('post_tag', 'lecture');
-}
-
-add_action('init', 'init_backend');
 
 /*
 Plugin Name: Disable Autosave
@@ -333,3 +328,27 @@ exact [optional,              disables the “merge similar styles” feature, n
 default = false]              for some CSS inheritance issues
 
 */
+
+
+
+
+add_action('add_meta_boxes', function() { add_meta_box('attached-html-pages', 'Attached HTML Pages', 'select_html_pages', 'section'     , 'side', 'high');});
+add_action('add_meta_boxes', function() { add_meta_box('attached-html-pages', 'Attached HTML Pages', 'select_html_pages', 'unit'        , 'side', 'high');});
+add_action('add_meta_boxes', function() { add_meta_box('attached-html-pages', 'Attached HTML Pages', 'select_html_pages', 'module'      , 'side', 'high');});
+add_action('add_meta_boxes', function() { add_meta_box('attached-html-pages', 'Attached HTML Pages', 'select_html_pages', 'submodule'   , 'side', 'high');});
+add_action('add_meta_boxes', function() { add_meta_box('attached-html-pages', 'Attached HTML Pages', 'select_html_pages', 'announcement', 'side', 'high');});
+function select_html_pages($post) {
+    $selected_html_page_ids = get_post_meta($post->ID, 'html-pages');
+    $selected_html_page_ids = explode(',',$selected_html_page_ids[0]);
+    $html_pages = get_pages(array('post_type'=>'html-page'));
+    $output = '<ul id="htmlpages">';
+    for ($i=0; $i < count($html_pages); $i+=1) {
+        $html_page = $html_pages[$i];
+        $checked = '';
+        if (in_array($html_page->ID, $selected_html_page_ids)) {
+            $checked = 'checked="checked"';
+        }
+        $output .= '<li><label><input type="checkbox" name="htmlpage[]" '.$checked.' value="'.$html_page->ID.'" />'.$html_page->post_title.'</label></li>';
+    }
+    echo $output . '</ul>';
+}
