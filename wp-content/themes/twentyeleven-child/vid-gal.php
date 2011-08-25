@@ -90,7 +90,7 @@ li.thumbnail_gallery img {
 
 <?php
 // The Query
-query_posts( array( 'post_type' => array('submodule', 'unit') ) );
+query_posts( array( 'post_type' => array('submodule', 'unit'), 'posts_per_page' => -1 ) );
 ?>
 
 <div id="content" class="widecolumn">
