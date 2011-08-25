@@ -123,15 +123,22 @@ query_posts( array( 'post_type' => array('submodule', 'unit') ) );
         }*/
 	    
     	$listOfUrls = array();
-    	$parent = $post -> post_parent;
-    	$parentPost = get_post($parent);
-    	$thisTitle = $parentPost -> post_title;
     	
-    	$parentsUnit = $parentPost -> post_parent;
-    	$parentUnitPost = get_post($parentsUnit);
-    	$thisUnit = $parentUnitPost -> post_title;
+    	if ($post->post_type == 'submodule') {
+    	    
+        	$parentPost = get_post($post->post_parent);
+        	$thisTitle = $parentPost->post_title;
+        	$parentUnitPost = get_post($parentPost->post_parent);
+        	$thisUnit = $parentUnitPost->post_title;
+        	
+        	$thisTitle = $thisUnit . ' > ' . $thisTitle;
+    	    
+    	} else if ($post->post_type == 'unit') {
+    	    
+    	    $thisTitle = $post->post_title;
+    	    
+    	}
     	
-    	$title = the_title('', '', false);
 
     	$urlsArray = field_get_meta('url-link', false, $post->ID); // key, return 1 result, post ID
     	//var_dump($urlsArray);
@@ -202,7 +209,7 @@ query_posts( array( 'post_type' => array('submodule', 'unit') ) );
 					<a rel="shadowbox[gallery];width=640;height=360;player=swf;" class="vid_gallery" href="<?php echo $correctUrl . "?fs=1"; ?>"><img src="<?php echo $tubeThumbNail ?>" /></a>
 					<div class ="title_description">
     					<div class="caption">
-    						<h4><?php echo $thisUnit; echo " > ". $thisTitle; ?></h4>
+    						<h4><?php echo $thisTitle; ?></h4>
     						<h3><?php echo $tubeTitle; ?></h3>
     					</div>
     					<div class="vid_gal_description">
