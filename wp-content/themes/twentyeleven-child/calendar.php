@@ -87,8 +87,8 @@ endforeach;
     padding:0 0 0.5em 0;
 } 
 
-#announcements ul li p {
-	font-size: .8em;
+#announcements ul li p, #announcements ul li a.attachment {
+	font-size: .9em;
 }
 
 #announcements ul li hr {
@@ -280,10 +280,10 @@ wp_reset_query();
 				echo "</h2>";
 				echo wpautop($announcementContent);
 				foreach($html_ann_pages as $aPage) {
-					echo "<a target=\"_blank\" href=\"" . $aPage->guid . "\">". $aPage->post_title . "</a>" . "<br />";
+					echo "<a class=\"attachment\" target=\"_blank\" href=\"" . $aPage->guid . "\">". $aPage->post_title . "</a>" . "<br />";
 				}
 				foreach($attachments as $attchmnt) {
-					echo "<a target=\"_blank\" href=\"" . $attchmnt['location'] . "\">". $attchmnt['title'] . "</a>" . "<br />";
+					echo "<a class=\"attachment\" target=\"_blank\" href=\"" . $attchmnt['location'] . "\">". $attchmnt['title'] . "</a>" . "<br />";
 				}
 			echo "</li>";
 	/*()
