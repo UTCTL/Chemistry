@@ -49,7 +49,7 @@ a.vid_gallery {
 li.thumbnail_gallery {
 	display: block;
     clear: both;
-    height: 120px;
+    min-height: 120px;
     border-width: 0 0 1px;
     border-style: solid;
     border-color: #98C6CD;
