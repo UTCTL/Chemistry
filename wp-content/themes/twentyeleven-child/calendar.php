@@ -250,8 +250,10 @@ wp_reset_query();
 	
 		foreach ($announcements as $ann) :
 		
+    		$attachments = attachments_get_attachments($ann->ID);
+		
 			$selected_ann_html_page_ids = get_post_meta($ann->ID, 'html-pages');
-			//var_dump($ann);
+			
 			if (!empty($selected_ann_html_page_ids[0])) {
 				$html_ann_pages = get_pages(array('post_type'=>'html-page','include'=>$selected_ann_html_page_ids[0]));
 				} else {
@@ -278,7 +280,10 @@ wp_reset_query();
 				echo "</h2>";
 				echo wpautop($announcementContent);
 				foreach($html_ann_pages as $aPage) {
-					echo "<a target='_blank' href=" . $aPage->guid . ">". $aPage->post_title . "</a>" . "<br />";
+					echo "<a target=\"_blank\" href=\"" . $aPage->guid . "\">". $aPage->post_title . "</a>" . "<br />";
+				}
+				foreach($attachments as $attchmnt) {
+					echo "<a target=\"_blank\" href=\"" . $attchmnt['location'] . "\">". $attchmnt['title'] . "</a>" . "<br />";
 				}
 			echo "</li>";
 	/*()
