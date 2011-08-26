@@ -109,36 +109,38 @@ endforeach;
 
 #calendar-list {
     clear: none;
-    width: 37em;
+    width: 39em;
     float: left;
     margin: 0 1em;
     color: #FAFAFA;
 }
+    #calendar-list .single-event-listing {
+        border-bottom:1px solid #FFFFFF;
+        padding:1em;
+        min-height:5em;
+    }
+    #calendar-list .attachments {
+        margin:0.5em 0 0;
+        font-size:0.9em;
+    }
+        #calendar-list .attachments li {
+            margin:0 0 0 2em;
+        }
 
 #calendar-list .eventDate-topright {
 	float:right;
 	font-size: .9em;
-	margin: 0px 5px 0px 0px;
 }
 
 #calendar-list p {
-	margin: 0 0 0 0;
+	margin:0;
 	font-size: .8em;
 	
 }
 
 #calendar-list h3 {
 	float:left;
-	margin: 0 0 0 0;
-	
-}
-
-.xxxsingle-event-listing {
-	min-height: 60px;
-}
-
-.eventData, p.eventLocation {
-	padding-left:.5em;
+	margin:0;
 }
 
 .eventDate-topright {
@@ -395,7 +397,8 @@ query_posts( array( 'post_type' => 'section' ) );
     	        <p class="eventLocation" class="eventData"><?php 
     	        $queryObject->eventLocation();
     	        ?>
-    	        </p> 
+    	        </p>
+    	        <p class="eventData" class="eventDescription"> <?php $queryObject->eventDescription(); ?></p>
     	        <?php
     	        //echo "location: " . $thisEventLocation;
     	        if( function_exists( 'attachments_get_attachments' ) )
@@ -403,19 +406,18 @@ query_posts( array( 'post_type' => 'section' ) );
                     $attachments = attachments_get_attachments($queryObject->getPostID());
                     $total_attachments = count( $attachments );
                     if( $total_attachments ) : ?>
-                        <ul class="eventData" class="attachments">
+                        <ul class="attachments">
                             Attachments
-                            <?php for( $i=0; $i<$total_attachments; $i++ ) : ?>
-                                <li><a href="<?php echo $attachments[$i]['location']; ?>" TARGET="_blank"><?php echo $attachments[$i]['title']; ?></a> - <caption><?php echo $attachments[$i]['caption']; ?></caption></li>
+                            <?php for( $i=0; $i<$total_attachments; $i++ ) :
+                                $caption = !empty($attachments[$i]['caption']) ? " - <caption>" . $attachments[$i]['caption'] . "</caption>" : "";
+                                ?>
+                                <li><a href="<?php echo $attachments[$i]['location']; ?>" TARGET="_blank"><?php echo $attachments[$i]['title']; ?></a><?php echo $caption; ?></li>
                             <?php endfor; ?>
                         </ul>
                     <?php endif;
                 }
     	        ?>
-    	        </p>
-    	        <p class="eventData" class="eventDescription"> <?php $queryObject->eventDescription(); ?></p>
-	        
-    	        <hr />
+
 	        </div>
 	        <?php
         endwhile;
