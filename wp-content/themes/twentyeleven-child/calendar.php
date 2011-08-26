@@ -87,7 +87,7 @@ endforeach;
     padding:0 0 0.5em 0;
 } 
 
-#announcements ul li p, #announcements ul li a {
+#announcements ul li p {
 	font-size: .8em;
 }
 
