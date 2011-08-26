@@ -78,19 +78,12 @@ li.thumbnail_gallery img {
         box-shadow: inset 0 0 100px rgba(40,40,40,0.9);
     }
 
-/*li.thumbnail_gallery img:hover {
-	width: 260px;
-	float:left;
-	margin: 0px 10px 10px 0px;
-	border: 3px;
-	border-color: #fff;
-}*/
 
 </style>
 
 <?php
 // The Query
-query_posts( array( 'post_type' => array('submodule', 'unit'), 'posts_per_page' => -1 ) );
+$units = get_posts(array('post_type'=>'unit','numberposts'=>-1,'orderby'=>'menu_order','order'=>'ASC'));
 ?>
 
 <div id="content" class="widecolumn">
@@ -99,160 +92,94 @@ query_posts( array( 'post_type' => array('submodule', 'unit'), 'posts_per_page' 
     <div id="wrap">
 	<ul id="video_list">
     <?php
-    $stringU = "http://gdata.youtube.com/feeds/api/videos/ZVbk47X49eM";
-    $testTube = simplexml_load_file($stringU);
-    //$testTube = 'https://gdata.youtube.com/feeds/api/videos/qkCDjyoX?v=2';
-    //var_dump($testTube);
-    //echo $testTube->title[0];
         
-    // The Loop
-    $videosUsed = array();	//var_dump($lectureText);
+    $videos = array();
 	
-    while ( have_posts() ) : the_post();
-    
-    	//var_dump($post);
-    	//var_dump(get_post_type($post));
+    for ($i = 0; $i < count($units); $i += 1) {
+        
+        $unit = $units[$i];
+        $unitTitle = $unit->post_title;
+
+    	$video_urls = field_get_meta('url-link', false, $unit->ID); // key, return 1 result, post ID
     	
-    	
-    	/*$post_type = $post->post_type;
-        if ($post_type == 'submodule') {
-            echo "submodule";
-        } else if ($post_type == 'unit') {
-        	echo "unit";
-                //$result_ids[] = $result->ID;
-        }*/
-	    
-    	$listOfUrls = array();
-    	
-    	if ($post->post_type == 'submodule') {
+    	for ($j = 0; $j < count($video_urls); $j += 1) {
     	    
-        	$parentPost = get_post($post->post_parent);
-        	$thisTitle = $parentPost->post_title;
-        	$parentUnitPost = get_post($parentPost->post_parent);
-        	$thisUnit = $parentUnitPost->post_title;
-        	
-        	$thisTitle = $thisUnit . ' > ' . $thisTitle;
-    	    
-    	} else if ($post->post_type == 'unit') {
-    	    
-    	    $thisTitle = $post->post_title;
-    	    
+    	    $url = $video_urls[$j];
+
+			if(!empty($url)) {
+				$tubeID = getID($url);
+				if (!array_key_exists($tubeID, $videos)) {
+    				$videos[$tubeID] = simplexml_load_file("http://gdata.youtube.com/feeds/api/videos/" . $tubeID);
+    				$videos[$tubeID]->header = $unitTitle;
+    				$videos[$tubeID]->tubeID = $tubeID;
+    			}
+    		}
     	}
     	
+    	
+        $modules = get_posts(array('post_type'=>'module','numberposts'=>-1,'orderby'=>'menu_order','order'=>'ASC','post_parent'=>$unit->ID));
+        
+        for ($j = 0; $j < count($modules); $j += 1) {
+            
+            $module = $modules[$j];
+            $moduleTitle = $module->post_title;
+            $submodules = get_posts(array('post_type'=>'submodule','numberposts'=>-1,'orderby'=>'menu_order','order'=>'ASC','post_parent'=>$module->ID));
+            
+            for ($k = 0; $k < count($submodules); $k += 1) {
+                
+                $submodule = $submodules[$k];
+                $submoduleTitle = $submodule->post_title;
+            	$video_urls = field_get_meta('url-link', false, $submodule->ID); // key, return 1 result, post ID
 
-    	$urlsArray = field_get_meta('url-link', false, $post->ID); // key, return 1 result, post ID
-    	//var_dump($urlsArray);
-		//preg_match_all($urlTest, $lectureText[0], $urlsArray);
+            	for ($l = 0; $l < count($video_urls); $l += 1) {
 
-		
-		/*
-		//cutting old part out
-		foreach ($urlsArray as $val) {
-		    $listOfUrls[$val] = urlencode($val);
-		}
-		//var_dump($listOfUrls);
-		
-	     
-		$embedlyUrls = implode(",", $listOfUrls);
-		$stringToSend = "http://api.embed.ly/1/oembed?key=92481528b30711e0adda4040d3dc5c07&urls=" . $embedlyUrls;
-		//echo $stringToSend;
-		$embedlyContents = file_get_contents($stringToSend);
-		$embedlyObjects = json_decode(file_get_contents($stringToSend), True);
-		
-		for($i = 0; $i < count($embedlyObjects); $i+=1){
-			$obj = $embedlyObjects[$i];
-			$url = $obj['type'];
-			if ($url!="video"){
-				unset($embedlyObjects[$i]);
-			}
-		}*/
-		//end of cutting old part out
-		
-		
-		//new approach using youtube api rather than embedly
-		//to be done
-			
-		/*foreach ($urlsArray as $val) {
-		    $listOfUrls[$val] = urlencode($val);
-		}
-		
-	     
-		$embedlyUrls = implode(",", $listOfUrls);
-		$stringToSend = "http://api.embed.ly/1/oembed?key=92481528b30711e0adda4040d3dc5c07&urls=" . $embedlyUrls;
-		
-		$embedlyObjects = json_decode(file_get_contents($stringToSend), True);
-		
-		for($i = 0; $i < count($embedlyObjects); $i+=1){
-			$obj = $embedlyObjects[$i];
-			$url = $obj['type'];
-			if ($url!="video"){
-				unset($embedlyObjects[$i]);
-			}
-		}*/
-		
-		foreach($urlsArray as $q) :
-		
-    		$videoInfo = Array();
-			
-			if($q != '') {
-				$tubeID = getID($q);
-				$tubeData = simplexml_load_file("http://gdata.youtube.com/feeds/api/videos/" . $tubeID);
-				$tubeTitle = $tubeData->title;
-				$tubeDescription = $tubeData->content;
-				$tubeThumbNail = "http://i.ytimg.com/vi/". $tubeID ."/2.jpg";
-				//echo "ID is " . $tubeID . "\n" . "title is " . $tubeTitle . "\n" . "description is " . $tubeDescription;
-				//echo "thumbnail url " . $tubeThumbNail;
-				$correctUrl = "http://www.youtube.com/v/" . $tubeID;
+            	    $url = $video_urls[$l];
 
-				?>
-				<li class="thumbnail_gallery">
-					<a rel="shadowbox[gallery];width=640;height=360;player=swf;" class="vid_gallery" href="<?php echo $correctUrl . "?fs=1"; ?>"><img src="<?php echo $tubeThumbNail ?>" /></a>
-					<div class ="title_description">
-    					<div class="caption">
-    						<h4><?php echo $thisTitle; ?></h4>
-    						<h3><?php echo $tubeTitle; ?></h3>
-    					</div>
-    					<div class="vid_gal_description">
-    						<?php echo $tubeDescription; ?>
-    					</div>
-					</div>
-				</li>
-    			<?php
-    		}
-		endforeach;
-		
-		//end of new approach	
-		
-		
-		
-		/*foreach($embedlyObjects as $q)
-    		{
-    			if($q != '') {
-    			//echo "<p>" . $q['url'] . "</p>";
-    				$pattern = '/watch\?v\=/';
-    				if (preg_match($pattern, $q['url'], $matches)) {
-						$q['url'] = preg_replace("/watch\?v\=/", "v/", $q['url']);
-						//echo "<p>" . $q['url'] . "</p>";
-					}
-    					?>
-        					<li class="thumbnail_gallery">
-	        					<a rel="shadowbox[gallery];width=640;height=360;player=swf;" class="vid_gallery" href="<?php echo $q['url'] . "?fs=1"; ?>"><img src="<?php echo $q['thumbnail_url'] ?>" /></a>
-	        					<div class ="title_description">
-		        					<div class="caption">
-		        						<h4><?php echo $thisUnit; echo " > ". $thisTitle; ?></h4>
-		        						<h3><?php echo $q['title']; ?></h3>
-		        					</div>
-		        					<div class="vid_gal_description">
-		        						<?php echo $q['description']; ?>
-		        					</div>
-	        					</div>
-        					</li>
-    					<?php
-    				}
-    		}*/
-    endwhile;
-		    	    
-    wp_reset_query();
+        			if(!empty($url)) {
+        				$tubeID = getID($url);
+        				if (!array_key_exists($tubeID, $videos)) {
+            				$videos[$tubeID] = simplexml_load_file("http://gdata.youtube.com/feeds/api/videos/" . $tubeID);
+            				$videos[$tubeID]->header = $unitTitle . ' > ' . $moduleTitle . ' > ' . $submoduleTitle ;
+            				$videos[$tubeID]->tubeID = $tubeID;
+            			}
+            		}
+            	}
+                
+            }
+            
+        }
+    	
+    }
+    	
+	$videos = array_values($videos);
+	
+	for ($j = 0; $j < count($videos); $j += 1) {
+	    
+	    $tubeData = $videos[$j];
+		$tubeTitle = $tubeData->title;
+		$thisTitle = $tubeData->header;
+		$tubeDescription = $tubeData->content;
+		$tubeID = $tubeData->tubeID;
+		$tubeThumbNail = "http://i.ytimg.com/vi/". $tubeID ."/2.jpg";
+		$correctUrl = "http://www.youtube.com/v/" . $tubeID;
+	    ?>
+	    
+		<li class="thumbnail_gallery">
+			<a rel="shadowbox[gallery];width=640;height=360;player=swf;" class="vid_gallery" href="<?php echo $correctUrl . "?fs=1"; ?>"><img src="<?php echo $tubeThumbNail ?>" /></a>
+			<div class ="title_description">
+				<div class="caption">
+					<h4><?php echo $thisTitle; ?></h4>
+					<h3><?php echo $tubeTitle; ?></h3>
+				</div>
+				<div class="vid_gal_description">
+					<?php echo $tubeDescription; ?>
+				</div>
+			</div>
+		</li>
+	    
+	    <?php
+	}
+
     ?>
     </ul>
     </div>

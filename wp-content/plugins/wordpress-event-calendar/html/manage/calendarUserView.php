@@ -9,13 +9,14 @@ function wec_calendar_user_view($currentPage)
 
     
     $calendars = array();
+    /*
     if (! empty($usersCalendarSelection))
     {
         if (isset($_POST['calendars']))
         {
             $calendars = $_POST['calendars'];
-            $calendarSelectionHandler->setSelectionArray($calendars);
-            $calendarSelectionHandler->storeSelection();
+            //$calendarSelectionHandler->setSelectionArray($calendars);
+            //$calendarSelectionHandler->storeSelection();
         }
         else
         {
@@ -27,6 +28,7 @@ function wec_calendar_user_view($currentPage)
     {
         if (isset($_POST['calendarData']))
         {
+            var_dump($_POST['calendarData']);
             //echo 'settostore';
             $calendars = unserialize(stripslashes($_POST['calendarData']));
             $calendarSelectionHandler->setSelectionArray($calendars);
@@ -43,7 +45,7 @@ function wec_calendar_user_view($currentPage)
             $calendars = null;
         }
     }
-
+    */
     
     if (isset($_POST['calendarViewDate']))
     {
