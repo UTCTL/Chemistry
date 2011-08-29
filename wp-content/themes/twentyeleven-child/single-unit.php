@@ -205,8 +205,10 @@ get_header(); ?>
                         if( $total_attachments ) : ?>
                             <ul class="attachments">
                                 Attachments
-                                <?php for( $i=0; $i<count( $attachments ); $i++ ) : ?>
-                                    <li><a href="<?php echo $attachments[$i]['location']; ?>" TARGET="_blank"><?php echo $attachments[$i]['title']; ?></a> - <caption><?php echo $attachments[$i]['caption']; ?></caption></li>
+                                <?php for( $i=0; $i<count( $attachments ); $i++ ) :
+                                    $caption = !empty($attachments[$i]['caption']) ? " - <caption>" . $attachments[$i]['caption'] . "</caption>" : "";
+                                    ?>
+                                    <li><a href="<?php echo $attachments[$i]['location']; ?>" TARGET="_blank"><?php echo $attachments[$i]['title']; ?></a><?php echo $caption; ?></li>
                                 <?php endfor; ?>
                                 <?php
                         		foreach($html_pages as $aPage) { ?>

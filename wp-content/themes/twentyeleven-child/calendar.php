@@ -362,7 +362,8 @@ query_posts( array( 'post_type' => 'section' ) );
 		    <li>
 		    <?php
 				for($i=0; $i < $totalAttachments; $i++):
-					echo "<a target='_blank' href=" . $attachments[$i]['location'] . ">". $attachments[$i]['title'] . "</a>" . " - " . $attachments[$i]['caption'] . "<br />";
+                    $caption = !empty($attachments[$i]['caption']) ? " - <caption>" . $attachments[$i]['caption'] . "</caption>" : "";
+					echo "<a target='_blank' href=" . $attachments[$i]['location'] . ">". $attachments[$i]['title'] . "</a>" . $caption . "<br />";
 				endfor;
 			?>
 			</li>
