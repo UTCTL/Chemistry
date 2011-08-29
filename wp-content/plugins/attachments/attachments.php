@@ -119,11 +119,14 @@ function attachments_menu()
 function attachments_add($post_id = NULL)
 {
     
-    //var_dump($post_id);
-    //var_dump(empty($post_id));
-    
-    if ( $post==NULL ) {
+    if ( $post_id==NULL ) {
         $post = $_GET['post'];
+        $post_id = intval($post);
+    }
+    
+    if ( is_object($post_id) ) {
+        $post = $post_id;
+        $post_id = $post->ID;
     }
     
     ?>
@@ -147,10 +150,10 @@ function attachments_add($post_id = NULL)
                     <input type="hidden" name="attachments_nonce" id="attachments_nonce" value="<?php echo wp_create_nonce( plugin_basename(__FILE__) ); ?>" />
                     <ul>
                         <?php
-                    if( !empty($post) )
+                    if( !empty($post_id) )
                     {
                         // get all attachments
-                        $existing_attachments = attachments_get_attachments( intval( $post ) );
+                        $existing_attachments = attachments_get_attachments( $post_id );
 
                         if( is_array($existing_attachments) && !empty($existing_attachments) )
                         {
