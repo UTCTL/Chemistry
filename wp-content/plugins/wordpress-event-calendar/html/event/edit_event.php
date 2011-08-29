@@ -29,7 +29,7 @@ function wec_EditEvent($givenEventID = null) {
             <div id="side-sortables" class="meta-box-sortables ui-sortable">
             	
                 <?php showPublishBox($event->ID); ?>
-              	<?php showTaxonomyBoxes($event->postID);?>
+              	<?php //showTaxonomyBoxes($event->postID);?>
 				
             </div>
         </div>

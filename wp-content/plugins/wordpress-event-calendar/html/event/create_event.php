@@ -16,7 +16,7 @@ function wec_CreateEventScreen()
         <div id="side-info-column" class="inner-sidebar">
             <div id="side-sortables" class="meta-box-sortables ui-sortable">
                 <?php showPublishBox(); ?>
-               	<?php showTaxonomyBoxes(); ?>
+               	<?php //showTaxonomyBoxes(); ?>
     
             </div>
         </div>
