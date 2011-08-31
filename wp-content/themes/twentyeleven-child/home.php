@@ -28,9 +28,16 @@ get_header();
 
     $postArr = array();
     while ( have_posts() ) : the_post();
-
-        echo '<li id="'.$post->post_name.'">';
-	
+		
+		if($post->post_name != "fundamentals" && $post->post_name != "gases" && $post->post_name != "thermodynamics" && $post->post_name != "intermolecular-forces" )
+		{
+			echo '<li id="atomic-theory-and-bonding">';
+		}
+		
+		else {
+			echo '<li id="'.$post->post_name.'">';
+		}
+        	
 		$unitStatus = get_post_meta($post->ID, 'enable_module');
 		if($unitStatus[0] == 1)
 		{
@@ -47,10 +54,15 @@ get_header();
 			$modules = get_children( array('post_parent' => $post->ID, 'post_type' => 'module','orderby'=>'menu_order','order'=>'ASC') );
 		
     	foreach ($modules as $module) {
+    					
         	if (has_post_thumbnail( $module->ID ) )
         	{
         		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $module->ID ), 'single-post-thumbnail' );
         	}
+			
+			else {
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id(59), 'single-post-thumbnail' );;
+			}
     	
 		    $ratio = $image[2]/$image[1];
 		    if ($ratio >= 1) {
@@ -67,7 +79,7 @@ get_header();
 		    
 	        echo '<li class="level2">';
 			$status = get_post_meta($module->ID, 'enable_module');
-			
+						
 			if($status[0] == '1' || $status[0] == 'enable')
 			{
 	        	echo    '<a  id="'.$module->post_name.'" class="level2a" href="'.$module->guid.'"><img style="'.$paddingTop.$paddingLeft.$paddingRight.'" src="'.$image[0].'" />'.$module->post_title.'</a>';

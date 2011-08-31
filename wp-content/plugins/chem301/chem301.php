@@ -230,7 +230,6 @@ function submodule_columns_pop($name) {
     }
 }
 
-
 add_action('wp_ajax_update_module_ordering', 'update_ordering');
 function update_ordering($stuff) {
 	global $wpdb; // this is how you get access to the database

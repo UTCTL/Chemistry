@@ -98,22 +98,25 @@ $units = get_posts(array('post_type'=>'unit','numberposts'=>-1,'orderby'=>'menu_
     for ($i = 0; $i < count($units); $i += 1) {
         
         $unit = $units[$i];
-        $unitTitle = $unit->post_title;
+        $enable = intval(end(get_post_meta($unit->ID, 'enable_module')));
+        if ($enable) {
+            $unitTitle = $unit->post_title;
 
-    	$video_urls = field_get_meta('url-link', false, $unit->ID); // key, return 1 result, post ID
+        	$video_urls = field_get_meta('url-link', false, $unit->ID); // key, return 1 result, post ID
     	
-    	for ($j = 0; $j < count($video_urls); $j += 1) {
+        	for ($j = 0; $j < count($video_urls); $j += 1) {
     	    
-    	    $url = $video_urls[$j];
+        	    $url = $video_urls[$j];
 
-			if(!empty($url)) {
-				$tubeID = getID($url);
-				if (!array_key_exists($tubeID, $videos)) {
-    				$videos[$tubeID] = simplexml_load_file("http://gdata.youtube.com/feeds/api/videos/" . $tubeID);
-    				$videos[$tubeID]->header = $unitTitle;
-    				$videos[$tubeID]->tubeID = $tubeID;
-    			}
-    		}
+    			if(!empty($url)) {
+    				$tubeID = getID($url);
+    				if (!array_key_exists($tubeID, $videos)) {
+        				$videos[$tubeID] = simplexml_load_file("http://gdata.youtube.com/feeds/api/videos/" . $tubeID);
+        				$videos[$tubeID]->header = $unitTitle;
+        				$videos[$tubeID]->tubeID = $tubeID;
+        			}
+        		}
+        	}
     	}
     	
     	
@@ -122,29 +125,34 @@ $units = get_posts(array('post_type'=>'unit','numberposts'=>-1,'orderby'=>'menu_
         for ($j = 0; $j < count($modules); $j += 1) {
             
             $module = $modules[$j];
-            $moduleTitle = $module->post_title;
-            $submodules = get_posts(array('post_type'=>'submodule','numberposts'=>-1,'orderby'=>'menu_order','order'=>'ASC','post_parent'=>$module->ID));
+            $enable = intval(end(get_post_meta($module->ID, 'enable_module')));
+            if ($enable) {
+                
+                $moduleTitle = $module->post_title;
+                $submodules = get_posts(array('post_type'=>'submodule','numberposts'=>-1,'orderby'=>'menu_order','order'=>'ASC','post_parent'=>$module->ID));
             
-            for ($k = 0; $k < count($submodules); $k += 1) {
+                for ($k = 0; $k < count($submodules); $k += 1) {
                 
-                $submodule = $submodules[$k];
-                $submoduleTitle = $submodule->post_title;
-            	$video_urls = field_get_meta('url-link', false, $submodule->ID); // key, return 1 result, post ID
+                    $submodule = $submodules[$k];
+                    $submoduleTitle = $submodule->post_title;
+                	$video_urls = field_get_meta('url-link', false, $submodule->ID); // key, return 1 result, post ID
 
-            	for ($l = 0; $l < count($video_urls); $l += 1) {
+                	for ($l = 0; $l < count($video_urls); $l += 1) {
 
-            	    $url = $video_urls[$l];
+                	    $url = $video_urls[$l];
 
-        			if(!empty($url)) {
-        				$tubeID = getID($url);
-        				if (!array_key_exists($tubeID, $videos)) {
-            				$videos[$tubeID] = simplexml_load_file("http://gdata.youtube.com/feeds/api/videos/" . $tubeID);
-            				$videos[$tubeID]->header = $unitTitle . ' > ' . $moduleTitle . ' > ' . $submoduleTitle ;
-            				$videos[$tubeID]->tubeID = $tubeID;
-            			}
-            		}
-            	}
+            			if(!empty($url)) {
+            				$tubeID = getID($url);
+            				if (!array_key_exists($tubeID, $videos)) {
+                				$videos[$tubeID] = simplexml_load_file("http://gdata.youtube.com/feeds/api/videos/" . $tubeID);
+                				$videos[$tubeID]->header = $unitTitle . ' > ' . $moduleTitle . ' > ' . $submoduleTitle ;
+                				$videos[$tubeID]->tubeID = $tubeID;
+                			}
+                		}
+                	}
                 
+                }
+            
             }
             
         }
