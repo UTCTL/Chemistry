@@ -91,6 +91,7 @@ function chem301_enable_box()
  */
 function chem301_save($post_id)
 {
+	
     update_post_meta( $post_id, 'enable_module', $_POST['enable_module']         );
     update_post_meta( $post_id, 'html-pages'   , implode(',',$_POST['htmlpage']) );
     //var_dump(implode(',',$_POST['htmlpage']));
@@ -168,7 +169,7 @@ add_action('add_meta_boxes', function() { add_meta_box('submodule-parent', 'Modu
 function submodule_attributes_meta_box($post) {
     $post_type_object = get_post_type_object($post->post_type);
     if ( $post_type_object->hierarchical ) {
-        $pages = wp_dropdown_pages(array('post_type' => 'module', 'hierarchical' => 0, 'selected' => $post->post_parent, 'name' => 'parent_id', 'show_option_none' => __('(no module)'), 'sort_column'=> 'menu_order, post_title', 'echo' => 0));
+        $pages = ordered_dropdown_pages($post);
         if ( ! empty($pages) ) {
             echo $pages;
         } // end empty pages check
@@ -238,7 +239,6 @@ function update_ordering($stuff) {
     $k = 0;
     for ($i = 1; $i <= count($posts); $i += 1) {
         $post = $posts[$i];
-        if ($post['item_id'] == 'root') continue;
         if (empty($post['item_id']) || empty($post['parent_id'])) continue;
         if ($post['parent_id'] == 'root') {
             $wpdb->update( $wpdb->base_prefix.'posts', array('menu_order'=>$i), array('ID'=>$post['item_id']) )."\n";
@@ -350,4 +350,27 @@ function select_html_pages($post) {
         $output .= '<li><label><input type="checkbox" name="htmlpage[]" '.$checked.' value="'.$html_page->ID.'" />'.$html_page->post_title.'</label></li>';
     }
     echo $output . '</ul>';
+}
+
+function ordered_dropdown_pages($post) {
+		 $units = get_posts( array('post_type' => 'unit','orderby'=>'menu_order','order'=>'ASC') );
+		 $output = '<select name="parent_id">';
+		    $output .= "<option value=\"\">(no module)</option>";
+    		foreach ($units as $unit) :
+					$output .= "\t<optgroup label = \"$unit->post_title\">\n";
+					$modules = get_children( array('post_parent' => $unit->ID, 'post_type' => 'module','orderby'=>'menu_order','order'=>'ASC') );
+					foreach ($modules as $module) :
+						if ($post->post_parent == $module->ID) {
+							$output .= "\t<option selected=\"selected\" value = \"$module->ID\">$module->post_title</option>\n";
+						} else {
+							$output .= "\t<option value = \"$module->ID\">$module->post_title</option>\n";
+						}
+					endforeach;
+					$output .= "</optgroup>";
+				endforeach;
+				$output .= "</select>";
+		return $output;
+		?>
+		</select>
+		<?php
 }

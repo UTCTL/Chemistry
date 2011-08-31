@@ -130,6 +130,34 @@ get_header(); ?>
                     .section .video .info_overlay .play a:hover {
                         text-decoration:underline;
                     }
+                    
+            .section .quiz {
+                margin-bottom:20px;
+            }
+                .section .quiz .show_hide {
+                    color:#D25D1D;
+                    text-shadow:none;
+                    font-size:0.85em;
+                    margin-left:1em;
+                    cursor:pointer;
+                }
+                .section .quiz .show_hide:hover {
+                    text-decoration:underline;
+                }
+                .section .quiz ul {
+                    list-style:lower-alpha;
+                    list-style-position:inside;
+                    margin:0;
+                }
+                    .section .quiz ul li {
+                        text-indent: 20px;
+                    }
+                .section .quiz .question_A {
+                    display:none;
+                    color:#D25D1D;
+                    text-shadow: none;
+                    margin-top: 0.5em;
+                }
         </style>
         <script>
             var module_page = true;
@@ -185,6 +213,8 @@ get_header(); ?>
         	            <?php }
         	            
                         
+        	            $question = end(field_get_meta('question', false, $submodule->ID));
+        	            
                         $attachments = attachments_get_attachments($post->ID);
                 		$selected_html_page_ids = get_post_meta($post->ID, 'html-pages');
                 		if (!empty($selected_html_page_ids[0])) {
@@ -197,10 +227,27 @@ get_header(); ?>
         	            $resources = field_get_meta('additional-resources', false, $submodule->ID);
                         
                         
-                        if ($total_attachments || (!empty($resources) && !empty($resources[0]))) { ?>
+                        if (!empty($question) || $total_attachments || (!empty($resources) && !empty($resources[0]))) { ?>
                 	        <div class="post-content">
             	        <?php }
                         
+        	            if (!empty($question)) { ?>
+                	        <div class="quiz">
+                	            <div class="question">
+                	                <?php echo $question; ?> <span class="show_hide">(show/hide answer)</span>
+                	            </div>
+                	            <ul class="answer-choices">
+                	                <?php
+                	                $choices = array_reverse(field_get_meta('choices', false, $submodule->ID));
+                	                foreach ($choices as $choice) : ?>
+                	                    <li class="choice"><?php echo $choice; ?></li>
+                	                <?php endforeach; ?>
+                	            </ul>
+                	            <div class="question_A">
+                	                <?php echo end(field_get_meta('answer', false, $submodule->ID)); ?>
+                	            </div>
+                	        </div>
+            	        <?php }
                         
                         if( $total_attachments ) : ?>
                             <ul class="attachments">

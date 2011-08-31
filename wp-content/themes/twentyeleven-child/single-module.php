@@ -323,7 +323,7 @@ get_header(); ?>
                             	            </div>
                             	            <ul class="answer-choices">
                             	                <?php
-                            	                $choices = field_get_meta('choices', false, $submodule->ID);
+                            	                $choices = array_reverse(field_get_meta('choices', false, $submodule->ID));
                             	                foreach ($choices as $choice) : ?>
                             	                    <li class="choice"><?php echo $choice; ?></li>
                             	                <?php endforeach; ?>
