@@ -28,6 +28,8 @@ class eventValidator
     //Validates the event excerpt by checking length
     function validEventExcerpt($excerpt)
     {
+        // modded by Tucker Bickler 8/31/11
+        return true;
         $valid = true;
         if (strlen($excerpt) < 4)
         {

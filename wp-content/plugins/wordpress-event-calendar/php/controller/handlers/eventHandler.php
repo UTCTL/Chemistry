@@ -152,6 +152,14 @@ class eventHandler
                 $continue = false;
                 $errorMessage .= 'The event end time must be after the start time';
             }
+            
+            //===================================================
+            //Validate that a calendar was selected
+            //===================================================
+            if (!isset($_POST['categoryList'])) {
+                $continue = false;
+                $errorMessage .= 'Please select at least one calendar for this event to appear in';
+            }
 
             
             //===================================================
@@ -428,6 +436,13 @@ class eventHandler
         {
             $continue = false;
             $errorMessage .= 'The end time must be after the start time<br />';
+        }                
+        //===================================================
+        //Validate that a calendar was selected
+        //===================================================
+        if (!isset($_POST['categoryList'])) {
+            $continue = false;
+            $errorMessage .= 'Please select at least one calendar for this event to appear in';
         }
         //===================================================
         // Process remaining fields

@@ -48,14 +48,6 @@ function wec_CreateEventScreen()
                     </tr>
                     <tr valign="top">
                         <th scope="row">
-                            Event Excerpt
-                        </th>
-                        <td>
-                            <input name="eventExcerpt" type="text" id="eventExcerpt" />
-                        </td>
-                    </tr>
-                    <tr valign="top">
-                        <th scope="row">
                             <label for="allDayEvent">
                                 All-Day Event
                             </label>

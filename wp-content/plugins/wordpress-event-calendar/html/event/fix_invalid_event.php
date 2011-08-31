@@ -20,7 +20,7 @@ function wec_FixInvalidEvent($postObject)
             <div id="side-sortables" class="meta-box-sortables ui-sortable">
             	
                 <?php showPublishBox($event->ID); ?>
-              	<?php showTaxonomyBoxes($event->postID);?>
+              	<?php //showTaxonomyBoxes($event->postID);?>
 				
             </div>
         </div>        <div id="post-body">
@@ -48,14 +48,6 @@ function wec_FixInvalidEvent($postObject)
                             echo $_POST['eventName'];
                             echo '</textarea>';
                             ?>
-                        </td>
-                    </tr>
-                    <tr valign="top">
-                        <th scope="row">
-                            Event Excerpt
-                        </th>
-                        <td>
-                            <input name="eventExcerpt" type="text" id="eventExcerpt" value="<?php echo $_POST['eventExcerpt']; ?>"/>
                         </td>
                     </tr>
                     <tr valign="top">
@@ -302,6 +294,14 @@ function wec_FixInvalidEvent($postObject)
                     }
                     ?>
                 </ul>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scrop="row">
+                            Attachments
+                        </th>
+                        <td>
+                            <?php attachments_add(); ?>
                         </td>
                     </tr>
                     <?php } ?>

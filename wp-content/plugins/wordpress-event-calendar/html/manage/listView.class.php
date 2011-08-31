@@ -230,7 +230,7 @@ if ($adminRoleManager->userIsEditorLevel())
                 Name
             </th>
             <th scope="col">
-                Excerpt
+                Description
             </th>
             <?php 
             if ($adminRoleManager->userIsEditorLevel())
@@ -271,8 +271,7 @@ if ($adminRoleManager->userIsEditorLevel())
             </td>
             <td>
                 <?php 
-                $eventQuery->eventExcerpt();
-                
+                $eventQuery->eventDescription();
                 ?>
             </td>
             <?php 

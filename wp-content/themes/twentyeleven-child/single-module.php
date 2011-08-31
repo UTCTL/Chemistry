@@ -258,7 +258,7 @@ get_header(); ?>
                     	    $videos = null;
                     	    ?>
                     	    
-                    	    <div class="submodule">
+                    	    <div class="submodule" id="topic<?php echo $submodule->ID; ?>">
                     	        <h3 class="subtitle"><?php echo $submodule->post_title; ?></h3>
                     	        <hr />
                     	        <div class="submodule-content">

@@ -26,6 +26,13 @@ Template Name: Video Gallery
 .caption h4 {
 	font-size: 0.85em;
 }
+    .caption h4 a {
+        color:#FFFFFF;
+    	//color:rgba(25, 130, 209, 0.5);
+    }
+    .caption h4 a:hover {
+    	color:rgba(25, 130, 209, 1);
+    }
 
 .caption h3 {
 	font-size: 1.1em;
@@ -100,7 +107,7 @@ $units = get_posts(array('post_type'=>'unit','numberposts'=>-1,'orderby'=>'menu_
         $unit = $units[$i];
         $enable = intval(end(get_post_meta($unit->ID, 'enable_module')));
         if ($enable) {
-            $unitTitle = $unit->post_title;
+            $unitLink = '<a href="'.$unit->guid.'">'.$unit->post_title.'</a>';
 
         	$video_urls = field_get_meta('url-link', false, $unit->ID); // key, return 1 result, post ID
     	
@@ -112,7 +119,7 @@ $units = get_posts(array('post_type'=>'unit','numberposts'=>-1,'orderby'=>'menu_
     				$tubeID = getID($url);
     				if (!array_key_exists($tubeID, $videos)) {
         				$videos[$tubeID] = simplexml_load_file("http://gdata.youtube.com/feeds/api/videos/" . $tubeID);
-        				$videos[$tubeID]->header = $unitTitle;
+        				$videos[$tubeID]->header = $unitLink;
         				$videos[$tubeID]->tubeID = $tubeID;
         			}
         		}
@@ -128,13 +135,13 @@ $units = get_posts(array('post_type'=>'unit','numberposts'=>-1,'orderby'=>'menu_
             $enable = intval(end(get_post_meta($module->ID, 'enable_module')));
             if ($enable) {
                 
-                $moduleTitle = $module->post_title;
+                $moduleLink = '<a href="'.$module->guid.'">'.$module->post_title.'</a>';
                 $submodules = get_posts(array('post_type'=>'submodule','numberposts'=>-1,'orderby'=>'menu_order','order'=>'ASC','post_parent'=>$module->ID));
             
                 for ($k = 0; $k < count($submodules); $k += 1) {
                 
                     $submodule = $submodules[$k];
-                    $submoduleTitle = $submodule->post_title;
+                    $submoduleLink = '<a href="'.$module->guid.'#topic'.$submodule->ID.'">'.$submodule->post_title.'</a>';
                 	$video_urls = field_get_meta('url-link', false, $submodule->ID); // key, return 1 result, post ID
 
                 	for ($l = 0; $l < count($video_urls); $l += 1) {
@@ -145,7 +152,7 @@ $units = get_posts(array('post_type'=>'unit','numberposts'=>-1,'orderby'=>'menu_
             				$tubeID = getID($url);
             				if (!array_key_exists($tubeID, $videos)) {
                 				$videos[$tubeID] = simplexml_load_file("http://gdata.youtube.com/feeds/api/videos/" . $tubeID);
-                				$videos[$tubeID]->header = $unitTitle . ' > ' . $moduleTitle . ' > ' . $submoduleTitle ;
+                				$videos[$tubeID]->header = $unitLink . ' > ' . $moduleLink . ' > ' . $submoduleLink ;
                 				$videos[$tubeID]->tubeID = $tubeID;
                 			}
                 		}

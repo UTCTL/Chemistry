@@ -62,14 +62,6 @@ function wec_EditEvent($givenEventID = null) {
                     </tr>
                     <tr valign="top">
                         <th scope="row">
-                            Event Excerpt
-                        </th>
-                        <td>
-                            <input name="eventExcerpt" type="text" id="eventExcerpt" value="<?php echo $event->getEventExcerpt(); ?>"/>
-                        </td>
-                    </tr>
-                    <tr valign="top">
-                        <th scope="row">
                             <label for="allDayEvent">
                                 All-Day Event
                             </label>
