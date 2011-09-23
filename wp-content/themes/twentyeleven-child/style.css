@@ -306,14 +306,38 @@ li.level2 {
     font-size:0.875em;
 }
 
-.footer {
-	height: 40px;
-	background-color: #fff;
+.entry-content h3 {
+	padding-bottom: 0.5em;
 }
 
+.entry-content h1 {
+	padding-bottom: 1em;
+}
 
+.footer {
+	height: auto;
+/*	background-color: rgba(0, 0, 0, .5);*/
+    padding-bottom: 15px;
+}
 
+.footer a {
+	color: #19808C;
+}
 
+#footer-logo {
+	padding: 15px 0px 15px 0px;
+	margin:0px auto;
+	display: block;
+	/*height: 100px;*/
+}
+
+#footer-logo a {
+	margin:0px auto;
+	height:61px;
+	width: 119px;
+	display: block;
+	background:url(images/UT-Logo-Small.png) no-repeat center;
+}
 
 .search .page_header .entry-title, .search .result h1 {
     margin:0 !important;

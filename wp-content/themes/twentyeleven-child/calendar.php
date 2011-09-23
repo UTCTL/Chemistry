@@ -199,36 +199,6 @@ query_posts( array( 'post_type' => 'module' ) );
 	    the_content();
 	    
 		 ?>
-	    
-        <script type="text/javascript">
-            /*
-            <?php
-                $users = array();
-                $lectures = array();
-                while ( have_posts() ) : the_post();
-                	foreach (get_post_custom() as $attr=>$val) {
-                	    if (strstr($attr,'_schedule_')) {
-                	        $deets = unserialize(base64_decode($val[0]));
-                	        $user = get_userdata($deets['user_id']);
-                	        if (!in_array('\'user_'.$user->user_login.'\'', $users)) {
-                	            $users[$user->user_login] = $user->display_name;
-            	            }
-                	        $lectures[] = array(
-                	          'title' => html_entity_decode(the_title('','',false), ENT_NOQUOTES, 'UTF-8'),
-                	          'start' => "new Date('".$deets['lecture_date']."')",
-                	          'url'   => get_permalink(),
-                	          'allDay' => true,
-                	          'className' => 'custom_lecture user_'.$user->user_login  
-                	        );
-                	    }
-                	}
-                endwhile;
-                
-                echo 'var cal_lectures = '.json_encode($lectures).';';
-                echo 'var cal_users = '.json_encode($users).';';
-            ?>
-            */
-        </script>
     
         <div id="calendar" class="startAsHide">
             <?php wec_calendar_user_view($currentPage); ?>

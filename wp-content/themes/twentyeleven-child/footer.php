@@ -11,8 +11,7 @@
 ?>
 
 
-<!-- 	<div class = "footer"> -->
-
+	<div class = "footer">
 	<footer id="colophon" role="contentinfo">
 
 			<?php
@@ -21,6 +20,11 @@
 				 */
 				get_sidebar( 'footer' );
 			?>
+			
+			<div id = "footer-logo">
+				<a href= "http://www.utexas.edu" target="_blank"></a>
+			</div>
+			<center><a href = "http://fasttex-dev.ctl.utexas.edu/chem301/?html-page=credits">Site Credits</a></center>
             <!--
 			<div id="site-generator">
 				<?php do_action( 'twentyeleven_credits' ); ?>

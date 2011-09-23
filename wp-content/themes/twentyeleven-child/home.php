@@ -101,8 +101,8 @@ get_header();
     ?>
 
     </ul>
-    
-</div>
-</div>
 
+
+</div>
+</div>
 <?php get_footer(); ?>
