@@ -1,0 +1,1 @@
+This is a text doc that I made to make sure that nothing on the chem301 dev site was effed up by my git actions on the chem302 folder housed on the same server.
