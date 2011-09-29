@@ -1,0 +1,27 @@
+<data>
+	<material>
+		<title>Sodium</title>
+		<color></color>
+		<threshold>525</threshold>
+	</material>
+	<material>
+		<title>Zinc</title>
+		<color></color>
+		<threshold>342</threshold>
+	</material>
+	<material>
+		<title>Copper</title>
+		<color>0xA36C00</color>
+		<threshold>277</threshold>
+	</material>
+	<material>
+		<title>Platinum</title>
+		<color></color>
+		<threshold>242</threshold>
+	</material>
+	<material>
+		<title>Calcium</title>
+		<color></color>
+		<threshold>432</threshold>
+	</material>
+</data>
