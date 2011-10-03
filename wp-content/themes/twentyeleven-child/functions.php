@@ -726,3 +726,11 @@ function getID($url) {
 	}
 }
 
+//Function taken from: http://www.devdevote.com/cms/wordpress-hacks/get_permalink_by_name
+function get_permalink_by_name($post_name)
+{
+     global $post;
+     global $wpdb;
+     $id = $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_name = '".$post_name."'");
+     return get_permalink($id);
+}
