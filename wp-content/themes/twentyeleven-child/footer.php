@@ -24,7 +24,12 @@
 			<div id = "footer-logo">
 				<a href= "http://www.utexas.edu" target="_blank"></a>
 			</div>
-			<center><a href = "http://fasttex-dev.ctl.utexas.edu/chem301/?html-page=credits">Site Credits</a></center>
+			
+			<?php
+				$credits_post = get_permalink_by_name('credits');
+			?>
+			
+			<center><a href = "<? echo $credits_post ?>">Site Credits</a></center>
             <!--
 			<div id="site-generator">
 				<?php do_action( 'twentyeleven_credits' ); ?>
