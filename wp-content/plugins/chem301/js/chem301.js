@@ -1,6 +1,16 @@
 
 (function($) {
     
+	$(document).ready(function(){
+		Shadowbox.init({
+		            overlayOpacity: 0.8
+		        }, function() {
+		            Shadowbox.setup("a.vid_gallery", {
+		                players:  ['html', 'iframe']
+		            });
+		        });
+		
+	});
     /*
     if (typeof home_page !== "undefined") {
     

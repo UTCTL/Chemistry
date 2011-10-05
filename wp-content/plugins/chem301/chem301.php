@@ -130,7 +130,7 @@ function init_template_files() {
     wp_enqueue_style( 'chem301_print', WP_PLUGIN_URL . '/chem301/css/chem301_print.css', false, false, 'print' );
     wp_enqueue_style( 'shadowbox', WP_PLUGIN_URL.'/chem301/js/shadowbox/shadowbox.css', false, false, 'all' );
     
-    wp_enqueue_script( 'jquery.embedly.min', WP_PLUGIN_URL.'/chem301/js/jquery.embedly.min.js', array( 'jquery' ), false, true );
+    //wp_enqueue_script( 'jquery.embedly.min', WP_PLUGIN_URL.'/chem301/js/jquery.embedly.min.js', array( 'jquery' ), false, true );
     wp_enqueue_script( 'shadowbox', WP_PLUGIN_URL.'/chem301/js/shadowbox/shadowbox.js', array( 'jquery' ), false, true );
     wp_enqueue_script( 'chem301', WP_PLUGIN_URL . '/chem301/js/chem301.js', array( 'jquery', 'shadowbox' ), false, true );
 }
