@@ -83,8 +83,8 @@
                 margin:0 auto;
                 top:-2.5em;
                 background:url(<?php echo get_template_directory_uri(); ?>/images/HeaderIcon.png);
-                height:9.1em;
-                width:8em;
+                height:9.2em;
+                width:7.945em;
                 position: relative;
             }
             
@@ -92,8 +92,8 @@
                 margin:0 auto;
                 top:0.20em;
                 display: block;
-                height:9.1em;
-                width:8em;
+                height:9.2em;
+                width:7.945em;
                 position: relative;
             }
                 #banner #nav1, #banner #nav2 {
@@ -162,7 +162,7 @@
                     color:#FFFFFF;
                 }
         #cns_link, #cns_link:hover {
-            background:url(<?php echo get_template_directory_uri(); ?>/images/natsci.jpg) no-repeat 5px center;
+            background:url(<?php echo get_template_directory_uri(); ?>/images/utwordmark.gif) no-repeat 5px center;
             display: inline;
             color: #000;
             text-decoration: none;
@@ -189,14 +189,15 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="top_branding">
+<!-- The top_branding id is in plugins/chem301/chem301.css - this defines the style of the UT banner at the top of the screen -->
+<!-- <div id="top_branding"> 
     <div id="branding_frame">
-    	<a id = "cns_link" href="http://cns.utexas.edu" target="blank">
-	        <!-- College of Natural Sciences image -->
-	        <span>College of Natural Sciences</span>
-      </a>
+    	<a id = "cns_link" href="http://utexas.edu" target="blank"> -->
+	        <!-- University of Texas image -->
+<!-- 	        <span>Fill in this area in header.php</span>
+	    </a>
     </div>
-</div>
+</div> -->
 <div id="page" class="hfeed">
 	<header id="banner" role="banner">
         <ul id="nav1">
