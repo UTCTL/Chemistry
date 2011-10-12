@@ -163,13 +163,31 @@
                 }
         #cns_link, #cns_link:hover {
             background:url(<?php echo get_template_directory_uri(); ?>/images/utwordmark.gif) no-repeat 5px center;
-            display: inline;
+            bottom: 0;
+            width: 301px;
+            display: block;
             color: #000;
             text-decoration: none;
             padding-left: 2.5em;
-            padding-top: 1em;
+            padding-top: 1.20em;
             padding-bottom: 1em;
         }
+        
+        #top_branding {
+        	background:#ffffff;
+        	height: 34px;
+        	position:relative;
+        	border-bottom:1px solid rgba(74,74,74,0.5);
+        }
+    
+    	#branding_frame {
+        	height: 34px;
+        	width: 950px;
+        	margin: 0 auto;
+        	padding: 0px;
+        	background:url(<?php echo get_template_directory_uri(); ?>/images/utwordmark.gif) no-repeat 5px left;
+    	}
+
                
         
     </style>
@@ -189,15 +207,14 @@
 </head>
 
 <body <?php body_class(); ?>>
-<!-- The top_branding id is in plugins/chem301/chem301.css - this defines the style of the UT banner at the top of the screen -->
-<!-- <div id="top_branding"> 
+<div id="top_branding">
     <div id="branding_frame">
-    	<a id = "cns_link" href="http://utexas.edu" target="blank"> -->
-	        <!-- University of Texas image -->
-<!-- 	        <span>Fill in this area in header.php</span>
-	    </a>
+    	<a id = "cns_link" href="http://utexas.edu" target="blank">
+	        <!-- College of Natural Sciences image -->
+<!-- 	        <span>asdfasdf</span> -->
+      </a>
     </div>
-</div> -->
+</div>
 <div id="page" class="hfeed">
 	<header id="banner" role="banner">
         <ul id="nav1">
@@ -205,7 +222,7 @@
             <li><a style="background: url(<?php echo get_template_directory_uri(); ?>/images/icons/Menu_Icons/VideoIcon.png) no-repeat;" href="<?php echo get_page_link(43); ?>">Video Gallery</a></li>
         </ul>
 	    <ul id="nav2">
-            <li><a style="background: url(<?php echo get_template_directory_uri(); ?>/images/icons/Menu_Icons/CalendarIcon.png) no-repeat;" href="<?php echo get_page_link(72); ?>">Calendar</a></li>
+            <li><a href="<?php echo get_permalink_by_name('credits'); ?>">Credits</a></li>
             <li class="search"><?php get_search_form(); ?></li>
 	    </ul>
 	    
