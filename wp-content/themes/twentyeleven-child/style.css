@@ -291,11 +291,10 @@ li.level2 {
         padding-top:0 !important;
     }
     .section .entry-header, .section .entry-content, .section .entry-meta {
-        width:auto !important;
+       width:auto;
+      /*	width: 503px;*/
+	margin-left: 0em;
     }
-
-
-
 
 .entry-title {
     padding-top: 25px;

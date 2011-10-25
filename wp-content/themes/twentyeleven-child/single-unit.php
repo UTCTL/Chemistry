@@ -11,7 +11,16 @@
  * @subpackage Twenty_Eleven
  * @since Twenty Eleven 1.0
  */
+?>
 
+ <?php
+  $browser = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+    if ($browser == true){
+    $browser = 'iphone';
+  }
+?>
+
+<?php
 function ellipsis_middle($text, $max=100, $div='&hellip;')
 {
     if (strlen($text) <= $max) return $text;
@@ -181,7 +190,9 @@ get_header(); ?>
 						<?php endif; ?>
 					</header><!-- .entry-header -->
 				
-					<div class="entry-content unit">
+					<!-- 					NOTE: The following 2 lines reference the browser variable (declared at the top of this page) to modify the page for the iPhone -->
+					<?php if($browser == 'iphone'){ ?><div class="entry-content unit" style="margin-left: -2em; width: 503px;"><?php } 
+						else{ ?> <div class="entry-content unit"><?php }?>
 					    
             	        <?php echo wpautop($post->post_content);
             	        
