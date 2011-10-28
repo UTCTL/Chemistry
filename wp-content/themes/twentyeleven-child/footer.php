@@ -21,7 +21,7 @@
 				get_sidebar( 'footer' );
 			?>
 			
-			<div id = "footer-logo">
+<!-- 			<div id = "footer-logo">
 				<a href= "http://www.utexas.edu" target="_blank"></a>
 			</div>
 			
@@ -29,7 +29,7 @@
 				$credits_post = get_permalink_by_name('credits');
 			?>
 			
-			<center><a href = "<? echo $credits_post ?>">Site Credits</a></center>
+			<center><a href = "<? echo $credits_post ?>">Site Credits</a></center> -->
             <!--
 			<div id="site-generator">
 				<?php do_action( 'twentyeleven_credits' ); ?>
