@@ -181,8 +181,9 @@
         }
     
     	#branding_frame {
+    		background: #fff;
         	height: 34px;
-        	width: 950px;
+        	width: 60em;
         	margin: 0 auto;
         	padding: 0px;
         	background:url(<?php echo get_template_directory_uri(); ?>/images/utwordmark.gif) no-repeat 5px left;
@@ -193,16 +194,16 @@
     </style>
 <script type="text/javascript"
    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-   
-    var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-25328401-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+   // THE FOLLOWING IS THE GOOGLE ANALYTICS CODE ADDED FOR THE 301 SITE
+    // var _gaq = _gaq || [];
+  // _gaq.push(['_setAccount', 'UA-25328401-1']);
+  // _gaq.push(['_trackPageview']);
+// 
+  // (function() {
+    // var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    // ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    // var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  // })();
 </script>
 </head>
 
