@@ -211,6 +211,8 @@ get_header(); ?>
 								$tubeThumbNail = "http://i.ytimg.com/vi/". $tubeID ."/2.jpg";
 								$correctUrl = "http://www.youtube.com/v/" . $tubeID;
                     	        ?>
+                    	        <?php if($browser == 'iphone'){ ?><iframe width="503" height="285" src="http://www.youtube.com/embed/<?php echo $tubeID?>" frameborder="0" allowfullscreen></iframe><?php } 
+											else{ ?>
             	                <div class="video">
             	                    <img class="thumb" src="<?php echo $tubeThumbNail; ?>" />
             	                    <div class="info_overlay">
@@ -219,6 +221,7 @@ get_header(); ?>
             	                        <div class="play">&raquo; <a rel="shadowbox[gallery];width=640;height=360;player=swf" href="<?php echo $correctUrl . "?fs=1"; ?>">play</a></div>
             	                    </div>
             	                </div>
+            	                <?php } ?>
             	            <?php endforeach;?>
         	            </div>    
         	            <?php }
