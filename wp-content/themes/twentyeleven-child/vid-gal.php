@@ -4,6 +4,13 @@ Template Name: Video Gallery
 */
 ?>
 
+<?php
+  $browser = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+    if ($browser == true){
+    $browser = 'iphone';
+  }
+?>
+
 <?php get_header(); ?>
 
 
@@ -62,7 +69,7 @@ li.thumbnail_gallery {
     border-color: #98C6CD;
 }
 
-li.thumbnail_gallery img {
+li.thumbnail_gallery img, iframe {
 	height: 80px;
     float: left;
     margin: 15px 10px 15px 15px;
@@ -179,8 +186,13 @@ $units = get_posts(array('post_type'=>'unit','numberposts'=>-1,'orderby'=>'menu_
 		$correctUrl = "http://www.youtube.com/v/" . $tubeID;
 	    ?>
 	    
+		
 		<li class="thumbnail_gallery">
+			<?php if($browser == 'iphone'){ ?><iframe width="118" height="92" class="vid_gallery" src="http://www.youtube.com/embed/<?php echo $tubeID ?>?showinfo=0" frameborder="0" allowfullscreen></iframe><?php } 
+											else{ ?>
+												
 			<a rel="shadowbox[gallery];width=640;height=360;player=swf;" class="vid_gallery" href="<?php echo $correctUrl . "?fs=1"; ?>"><img src="<?php echo $tubeThumbNail ?>" /></a>
+			<?php } ?>
 			<div class ="title_description">
 				<div class="caption">
 					<h4><?php echo $thisTitle; ?></h4>
