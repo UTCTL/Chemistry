@@ -225,7 +225,8 @@
             <li><a style="background: url(<?php echo get_template_directory_uri(); ?>/images/icons/Menu_Icons/VideoIcon.png) no-repeat;" href="<?php echo get_page_link(43); ?>">Video Gallery</a></li>
         </ul>
 	    <ul id="nav2">
-            <li><a href="<?php echo get_permalink_by_name('credits'); ?>">Credits</a></li>
+            <li><a style = "padding: 0px 30px 0px 30px" href="<?php echo get_permalink_by_name('credits'); ?>">Credits</a></li>
+            
             <li class="search"><?php get_search_form(); ?></li>
 	    </ul>
 	    
