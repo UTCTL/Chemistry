@@ -29,7 +29,7 @@ body {
     -moz-box-shadow: 0px 0px 150px #000;
 	-webkit-box-shadow: 0px 0px 150px #000;
 	box-shadow: 0px 0px 150px #000;
-    height:100%;
+    height:auto;
 }
 
 #main {
@@ -88,7 +88,8 @@ body {
 #atomic-theory-and-bonding,
 #intermolecular-forces,
 #thermodynamics, 
-#fundamentals {
+#fundamentals,
+#long-unit-name {
 	list-style-type: none;
 	float: left;
 	width: 350px;
@@ -101,7 +102,8 @@ body {
 #atomic-theory-and-bonding > a,
 #intermolecular-forces > a,
 #thermodynamics > a,
-#fundamentals > a {
+#fundamentals > a,
+#long-unit-name > a {
 	color: #fff !important;
 	position: relative;
     text-decoration: none !important;
@@ -116,7 +118,8 @@ body {
 #atomic-theory-and-bonding > p,
 #intermolecular-forces > p,
 #thermodynamics > p,
-#fundamentals > p {
+#fundamentals > p,
+#long-unit-name > p {
 	color: #fff !important;
 	position: relative;
     text-decoration: none !important;
@@ -150,6 +153,11 @@ body {
     background:url(images/buttons/Fundamentals.png) no-repeat left top;
 }
 
+#long-unit-name > a, #long-unit-name > p {
+    font-size: 90%;
+    background:url(images/buttons/Unit4.png) no-repeat left top;
+    line-height: 24px !important;
+   }
 
 li.level2 {
 	width:270px;

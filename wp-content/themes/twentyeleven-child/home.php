@@ -28,14 +28,21 @@ get_header();
 
     $postArr = array();
     while ( have_posts() ) : the_post();
+	
+	
 		
-		if($post->post_name != "fundamentals" && $post->post_name != "gases" && $post->post_name != "thermodynamics" && $post->post_name != "intermolecular-forces" )
+		if($post->post_name != "fundamentals" && $post->post_name != "gases" && $post->post_name != "thermodynamics" && strlen($post->post_name)>14 && strlen($post->post_name)<28)
 		{
 			echo '<li id="atomic-theory-and-bonding">';
 		}
 		
+		else if(strlen($post->post_name)>20)
+		{
+			echo '<li id="long-unit-name">';
+		}
+		
 		else {
-			echo '<li id="'.$post->post_name.'">';
+			echo '<li id="thermodynamics">';
 		}
         	
 		$unitStatus = get_post_meta($post->ID, 'enable_module');
