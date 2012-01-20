@@ -1,0 +1,533 @@
+/* NOTE: Do NOT modify this file if you want to change your menus CSS. This is not the CSS for your menu */
+
+
+
+
+
+.premiumbutton {position:relative;top:16px;margin:0 4px;padding:0 4px;float:right;width:auto;background:#eee;background-position:0 0;
+	font-family:sans-serif;font-size:10px;color:#666;line-height:19px;
+	border:1px solid #ccc;
+	-moz-border-radius: 5px;-webkit-border-radius:5px;
+	border-left:1px solid #ccc;
+	border-top:1px solid #ccc;
+	border-right:1px solid #ccc;
+	}
+.premiumbutton:hover {text-decoration:none;background:#e22;color:#eee;}
+.closebutton {position:relative;top:20px;margin:0;padding:0;float:right;width:20px;height:17px;background:url('../images/closebutton.png');background-position:0 0;text-indent:-999em;border:none;}
+.closebutton:hover {background-position:0 -17px;}
+.editorclose {position:absolute;top:0;width:778px;}
+.premiumoff {display:block;}
+.basicoff {display:none;}
+
+input.confirmationbutton {
+	-moz-border-radius: 16px;
+	-webkit-border-radius: 16px;
+	border: 1px solid #bbb;
+	background:#ddd;
+	font-size:24px;
+	line-height:50px;
+	height:60px;
+	margin:0;
+	padding:0 30px;
+	}
+input.confirmationbutton:hover {
+	border: 1px solid #666;
+	background:#fff;
+	color:#D54E21;
+	}
+
+.pixopoint_widgets {width:250px}
+#top_menu_list {width:270px;height:500px;border:1px solid #ccc}
+
+#top_menu_list li,.pixopoint_widgets li {
+	clear:right;
+	list-style:none;
+	width:250px;
+	height:35px;
+	line-height:35px;
+	margin:10px 0;
+	text-indent:10px;
+	float:left;
+	background:#DDE url('../images/widget.png') repeat-x;
+	background-position:0 -35px;
+	height:31px;
+	line-height:31px;
+	color:#ffffff;
+	}
+#top_menu_list li:hover,.pixopoint_widgets li:hover {
+	background-position:0 -70px;
+	}
+#top_menu_list li,.pixopoint_widgets li {
+	background-position:0 -35px;
+	}
+
+
+/* $Id: example.css,v 1.5 2006/03/27 02:44:36 pat Exp $ */
+
+/*--------------------------------------------------
+  REQUIRED to hide the non-active tab content.
+  But do not hide them in the print stylesheet!
+  --------------------------------------------------*/
+.tabberlive .tabbertabhide {
+ display:none;
+}
+
+/*--------------------------------------------------
+  .tabber = before the tabber interface is set up
+  .tabberlive = after the tabber interface is set up
+  --------------------------------------------------*/
+.tabber {
+}
+.tabberlive {
+ margin-top:16px;
+}
+
+/*--------------------------------------------------
+  ul.tabbernav = the tab navigation list
+  li.tabberactive = the active tab
+  --------------------------------------------------*/
+ul.tabbernav
+{
+ margin:0;
+ padding: 3px 0 1px 0;
+ border-bottom:none;
+ font: bold 12px Verdana, sans-serif;
+}
+
+ul.tabbernav li
+{
+ list-style: none;
+ margin: 0 4px;
+ padding: 0;
+ float:left;
+ background: #DDE url('../images/adminheading_left.png');
+ background-position:0 -50px;
+ height:41px;
+ line-height:41px;
+}
+
+ul.tabbernav li:hover {
+ background-position:0 0;
+ }
+
+ul.tabbernav li a
+{
+ display:block;
+ padding: 0 15px;
+ height:41px;
+ line-height:41px;
+ color:#464646;
+ margin-left: 3px;
+ border:none;
+ border-bottom: none;
+ background: url('../images/adminheading_right.png') no-repeat;
+ background-position:100% -50px;
+ text-decoration: none;
+}
+
+ul.tabbernav li a:link { color: #464646; }
+ul.tabbernav li a:visited { color: #464646; }
+
+ul.tabbernav li a:hover {
+ background-position:100% 0;
+ border-color: #227;
+ color:#D54E21;
+}
+
+ul.tabbernav li.tabberactive:hover {
+ background:url('../images/adminheading_left.png');
+ background-position:0 0;
+}
+ul.tabbernav li.tabberactive {
+ background:url('../images/adminheading_left.png');
+ background-position:0 0;
+}
+ul.tabbernav li.tabberactive a
+{
+ background: url('../images/adminheading_right.png') no-repeat;
+ background-position:100% 0;
+ border-bottom: 1px solid #fff;
+}
+
+ul.tabbernav li.tabberactive a:hover
+{
+ color:#D54E21;
+ background: url('../images/adminheading_right.png') no-repeat;
+ background-position:100% 0;
+ border-bottom: none;
+}
+
+/*--------------------------------------------------
+  .tabbertab = the tab content
+  Add style only after the tabber interface is set up (.tabberlive)
+  --------------------------------------------------*/
+.tabberlive .tabbertab {
+ padding:0;
+ border:none;
+ border-top:0;
+
+ /* If you don't want the tab size changing whenever a tab is changed
+    you can set a fixed height */
+
+ /* height:200px; */
+
+ /* If you set a fix height set overflow to auto and you will get a
+    scrollbar when necessary */
+
+ /* overflow:auto; */
+}
+
+/* If desired, hide the heading since a heading is provided by the tab */
+.tabberlive .tabbertab h2 {
+ display:none;
+}
+.tabberlive .tabbertab h3 {
+ display:none;
+}
+
+/* Example of using an ID to set different styles for the tabs on the page */
+.tabberlive#tab1 {
+}
+.tabberlive#tab2 {
+}
+.tabberlive#tab2 .tabbertab {
+ height:200px;
+ overflow:auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+	#temp_outer {
+		position:fixed;
+		left:0;
+		bottom:-10px;
+		width:100%;
+	}
+	#temp_inner {
+		-moz-border-radius: 10px;-webkit-border-radius: 10px;border:2px solid #ccc;
+		background:#F7F7F7;
+		height:220px;
+		width:778px;
+		margin:0 auto;
+		}
+
+
+.pixosubmit {
+	background: url('../images/submitbutton.png') no-repeat;
+	float:left;
+	overflow:auto;
+	margin:0;
+	padding:0;
+	width:85px;
+	height:85px;
+	border:none;
+	font-size:12px;
+	font-family:verdana,sans-serif;
+	color:#444;
+	font-weight:bold;
+	background-position:0 -85px;
+	}
+.pixosubmit:hover {background-position:0 0;color:#DE4E21;cursor:pointer;cursor:hand;}
+
+	#editor {position:fixed;left:0;bottom:0;width:100%;height:230px;}
+	#editor_inner {width:778px;margin:0 auto;padding:0;height:230px;}
+	#editor_menu {width:85px;text-align:left;}
+
+	.tabbertab {margin-left:85px;position:absolute;bottom:-18px;width:778px;height:230px;/*overflow:hidden;*/}
+	ul.tabbernav li {width:85px;line-height:42px;height:42px;}
+	ul.tabbernav {padding:0;line-height:42px;height:42px;}
+	ul.tabbernav li {margin:0;font-size:12px;}
+	ul.tabbernav li a {padding:0;text-align:center;}
+
+
+.chunks {width:180px;float:left;margin-right:1px;background:#fff;padding:5px;margin:5px 0 5px 5px;
+	-moz-border-radius: 5px;-webkit-border-radius: 5px;
+	border: 1px solid #ccc;
+	height:190px;
+	}
+
+.chunks select {
+	border:1px solid #ddd;
+	}
+.chunks .dropdown {
+	padding:0 7px;
+	}
+.chunks label {
+	margin-top:7px;
+	color:#666;
+	font-family:sans-serif;
+	font-size:10px;
+	font-weight:normal;
+	line-height:26px;
+	}
+.chunks #selectboxright1 {
+	width:70px;
+	text-align:right;
+	color:#666;
+	font-family:sans-serif;
+	font-size:9px;
+	padding:0;
+	margin:0;
+	font-size:10px;
+	height:18px;
+	line-height:18px;
+	}
+.chunks #selectboxright {
+	width:65px;
+	color:#666;
+	font-family:sans-serif;
+	font-size:9px;
+	padding:0;
+	margin:0;
+	font-size:12px;
+	height:18px;
+	line-height:18px;
+	}
+#selectbox_links {
+	width:125px;
+	text-align:right;
+	color:#666;
+	font-family:sans-serif;
+	font-size:9px;
+	padding:0;
+	margin:0;
+	font-size:10px;
+	height:18px;
+	line-height:18px;
+	}
+#selectbox_transform {
+	width:70px;
+	text-align:center;
+	color:#666;
+	font-family:sans-serif;
+	font-size:9px;
+	padding:0;
+	margin:0;
+	font-size:10px;
+	height:18px;
+	line-height:18px;
+	}
+.chunks #selectbox_fontfamily {
+	width:120px;
+	text-align:right;
+	color:#666;
+	font-family:sans-serif;
+	font-size:9px;
+	padding:0;
+	margin:0;
+	font-size:10px;
+	height:18px;
+	line-height:18px;
+	}
+.chunks #inputbox_fontsize {
+	width:16px;
+	text-align:right;
+	}
+.chunks #inputbox_inline {width:18px;}
+.chunks #inputbox_letterspacing {
+	width:25px;
+	}
+.chunks input {
+	color:#666;
+	border:1px solid #ddd;
+	font-family:sans-serif;
+	font-size:10px;
+	line-height:18px;
+	padding:0;
+	margin:0;
+	}
+.fullwidthwidget {
+	width:146px;
+	}
+.shortwidthwidget {
+	width:70px;
+	}
+.chunks .widgetcheckbox {
+	margin-top:8px;
+	}
+.chunks h4 {
+	font-size:12px;
+	line-height:12px;
+	font-family:verdana,sans-serif;
+	color:#666;
+	font-weight:bold;
+	font-style:normal;
+	margin:0;
+	padding:0;
+	background:none;
+	}
+.chunks p {
+	margin-top:7px;
+	color:#666;
+	font-family:sans-serif;
+	font-size:10px;
+	font-weight:normal;
+	line-height:15px;
+	}
+.chunks p a {color:#D54E21;text-decoration:underline;font-weight:bold;}
+.chunks p a:hover {text-decoration:none;}
+
+.chunks table {
+	background:#fff;
+	border:none;
+	/*border-top:1px solid #ddd;*/
+	}
+.chunks tr {
+	border:none;
+	border-bottom:1px solid #ddd;
+	line-height:14px;
+	height:14px;
+	}
+.chunks td {
+	text-align:right;
+	margin:0;
+	padding:0;
+	border:none;
+	background:#fff;
+	color:#666;
+	font-family:sans-serif;
+	font-size:10px;
+	font-weight:normal;
+	line-height:14px;
+	height:14px;
+	}
+.chunks input.curvedbutton {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #bbb;
+	background:#ddd;
+	}
+.chunks input.curvedbutton:hover {
+	border: 1px solid #666;
+	background:#fff;
+	color:#D54E21;
+	}
+.chunks input.bigcurvedbutton {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #bbb;
+	background:#ddd;
+	font-size:21px;
+	line-height:27px;
+	height:30px;
+	width:80px;
+	margin:5px 0;
+	}
+.chunks input.bigcurvedbutton:hover {
+	border: 1px solid #666;
+	background:#fff;
+	color:#D54E21;
+	}
+.chunks input.palettebutton {
+	border:none;
+	width:16px;
+	height:16px;
+	text-indent:-999em;
+	background:url('../images/palette.png');
+	}
+.chunks input.palettebutton:hover {
+	background-position:0 16px;
+	}
+
+.chunks #inputbox_colour0,
+.chunks #inputbox_colour1,
+.chunks #inputbox_colour2,
+.chunks #inputbox_colour3,
+.chunks #inputbox_colour4,
+.chunks #inputbox_colour5,
+.chunks #inputbox_colour6,
+.chunks #inputbox_colour7,
+.chunks #inputbox_colour8,
+.chunks #inputbox_colour9,
+.chunks #inputbox_colour10,
+.chunks #inputbox_colour11,
+.chunks #inputbox_colour12,
+.chunks #inputbox_colour13,
+.chunks #inputbox_colour14,
+.chunks #inputbox_colour15,
+.chunks #inputbox_colour16,
+.chunks #inputbox_colour17,
+.chunks #inputbox_colour18,
+.chunks #inputbox_colour19,
+.chunks #inputbox_colour20,
+.chunks #inputbox_colour21,
+.chunks #inputbox_colour22,
+.chunks #inputbox_colour23,
+.chunks #inputbox_colour24,
+.chunks #inputbox_colour25,
+.chunks #inputbox_colour26,
+.chunks #inputbox_colour27,
+.chunks #inputbox_colour28,
+.chunks #inputbox_colour29,
+.chunks #inputbox_colour30,
+.chunks #inputbox_colour31,
+.chunks #inputbox_colour32 {font-size:9px;width:40px;}
+.chunkcolours {width:140px;}
+.chunkoverall {width:130px;}
+
+.premium {background:#fdd;margin-right:1px;padding:5px;margin:5px 0 5px 5px;
+	-moz-border-radius: 5px;-webkit-border-radius: 5px;
+	border: 1px solid #ccc;
+	}
+/*.premium h4, .premium input, .premium label {color:#eee}*/
+.premium input, .premium option {background:#fdd}
+
+.premiumone {width:145px;border-right:1px dotted #ddd;margin-right:0;}
+.premiumtwo {border-left:none;margin-left:0;}
+
+
+
+
+.tooltip{z-index:3000;display:none;background:blue;color:black}
+
+
+/*
+	OLD **************************************************8
+ Farbtastic Color Picker 1.2
+ Copyright 2008 Steven Wittens
+.farbtastic {position:relative;ztop:0px;right:-140px;}
+.farbtastic * {position:absolute;cursor:crosshair;}
+.farbtastic, .farbtastic .wheel {width:195px;height:195px;}
+.farbtastic .color, .farbtastic .overlay {top:47px;left:47px;width:101px;height:101px;}
+.farbtastic .wheel {background: url('../images/wheel2.png') no-repeat;width: 195px;height: 195px;}
+.farbtastic .overlay {background: url('../images/mask.png') no-repeat;}
+.farbtastic .marker {width:17px;height:17px;margin: -8px 0 0 -8px;overflow:hidden;background: url('../images/marker.png') no-repeat;}
+.farbtastic_pixopoint {position:absolute;top:6px;}
+*/
+
+/*
+ Farbtastic Color Picker 1.2
+ Copyright 2008 Steven Wittens
+*/
+.farbtastic {position:relative;ztop:0px}
+.farbtastic * {position:absolute;cursor:crosshair;}
+.farbtastic, .farbtastic .wheel {width:195px;height:195px;}
+.farbtastic .color, .farbtastic .overlay {top:47px;left:47px;width:101px;height:101px;}
+.farbtastic .wheel {background: url('../images/wheel2.png') no-repeat;width: 195px;height: 195px;}
+.farbtastic .overlay {background: url('../images/mask.png') no-repeat;}
+.farbtastic .marker {width:17px;height:17px;margin: -8px 0 0 -8px;overflow:hidden;background: url('../images/marker.png') no-repeat;}
+
+
+
+/*
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all undefined ui-draggable ui-resizable">
+   <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+      <span id="ui-dialog-title-dialog" class="ui-dialog-title">Dialog title</span>
+      <a class="ui-dialog-titlebar-close ui-corner-all" href="#"><span class="ui-icon ui-icon-closethick">close</span></a>
+   </div>
+   <div style="height: 200px; min-height: 109px; width: auto;" class="ui-dialog-content ui-widget-content" id="dialog">
+      <p>Dialog content goes here.</p>
+   </div>
+</div>
+*/
+/* jQuery dialog extra CSS */
+.ui-dialog-content {width:800px;}
+

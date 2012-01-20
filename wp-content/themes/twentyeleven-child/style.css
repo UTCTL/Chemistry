@@ -29,7 +29,7 @@ body {
     -moz-box-shadow: 0px 0px 150px #000;
 	-webkit-box-shadow: 0px 0px 150px #000;
 	box-shadow: 0px 0px 150px #000;
-    height:auto;
+    height:100%;
 }
 
 #main {
@@ -73,11 +73,13 @@ body {
 #units > li > a, #units > li > p {
     text-align: left;
     padding-left: 90px;
-    width: 148px;
-    height: 62px;
-    padding-top: 8px;
+    width: 250px;
+    height: 65px;
+    padding-top: 4px;
     line-height: 48px;
     padding-right: 13px;
+    display: table-cell; 
+    vertical-align: middle;
 }
 
 #units {
@@ -88,8 +90,7 @@ body {
 #atomic-theory-and-bonding,
 #intermolecular-forces,
 #thermodynamics, 
-#fundamentals,
-#long-unit-name {
+#fundamentals {
 	list-style-type: none;
 	float: left;
 	width: 350px;
@@ -102,8 +103,7 @@ body {
 #atomic-theory-and-bonding > a,
 #intermolecular-forces > a,
 #thermodynamics > a,
-#fundamentals > a,
-#long-unit-name > a {
+#fundamentals > a {
 	color: #fff !important;
 	position: relative;
     text-decoration: none !important;
@@ -118,8 +118,7 @@ body {
 #atomic-theory-and-bonding > p,
 #intermolecular-forces > p,
 #thermodynamics > p,
-#fundamentals > p,
-#long-unit-name > p {
+#fundamentals > p {
 	color: #fff !important;
 	position: relative;
     text-decoration: none !important;
@@ -136,8 +135,8 @@ body {
 }
 
 #atomic-theory-and-bonding > a, #atomic-theory-and-bonding > p {
-    background:url(images/buttons/Unit2.png) no-repeat left top;
-    line-height: 24px !important;
+    background:url(http://ch302.cm.utexas.edu/wp-content/uploads/2012/01/chemUnitHeadernew.png) no-repeat left top;
+    line-height: 18px !important;
 }
 
 #intermolecular-forces > a, #intermolecular-forces > p {
@@ -153,11 +152,6 @@ body {
     background:url(images/buttons/Fundamentals.png) no-repeat left top;
 }
 
-#long-unit-name > a, #long-unit-name > p {
-    font-size: 90%;
-    background:url(images/buttons/Unit4.png) no-repeat left top;
-    line-height: 24px !important;
-   }
 
 li.level2 {
 	width:270px;

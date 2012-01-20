@@ -81,10 +81,10 @@
             position:relative;
             padding: 3.593em 0 4.593em 0;
         }    
-            #banner #header_icon {
+          #banner #header_icon {
                 margin:0 auto;
                 top:-2.5em;
-                background:url(<?php echo get_template_directory_uri(); ?>/images/HeaderIcon.png);
+                background:url(http://ch302.cm.utexas.edu/wp-content/themes/twentyeleven-child/images/HeaderIcon.png);
                 height:9.2em;
                 width:7.945em;
                 position: relative;
@@ -110,7 +110,6 @@
                     -webkit-box-shadow: 0 0 1.797em rgba(0,0,0,0.5);
                     box-shadow: 0 0 1.797em rgba(0,0,0,0.5);
                     position: relative;
-                    list-style: none;
                     padding: 2.0em 0 1.8em 0;               
                     position: absolute;
                     margin: 0;
@@ -121,20 +120,35 @@
                         float:left;
                         margin-top: -1em;
                     }
+
                     #banner #nav2 li.search {
                         padding-left:0;
                         margin-left:2em;
                         margin-top: -0.7em;
                     }
-                        #banner #nav1 li a, #banner #nav2 li a {
+                        #banner #nav1 li a {
                             color:#FFFFFF;
-                            font-stretch: condensed;
                             font-weight:bold;
                             line-height:1.554em;
                             font-size:1.3em;
                             display: block;
                             padding-left: 45px;
+			    
                         }
+
+			#banner #nav2 li a {
+			    background-color: #617475;
+                            font-weight:bold;
+                            line-height:1.554em;
+                            font-size:1.3em;
+                            display: block;
+                            padding-left: 25px;
+			    padding-right: 16px;
+			    margin-bottom: 8px;
+                            font-color: #white;
+			    width: 150px;
+}
+
                 #banner #nav1 {
                     left:0;
                     padding-left:2em;
@@ -143,12 +157,13 @@
                         margin-right:2em;
                     }
                 #banner #nav2 {
-                    right:0;
-                    padding-right:2em;
+                    right: 0em;
+                    padding-right: 2em;
                 }
                     #banner #nav2 li {
                         margin-left:2em;
                     }
+
                 #banner input#s {
                     background: url(<?php echo get_template_directory_uri(); ?>/images/search.png) no-repeat 133px center;
                     width: 135px;
@@ -160,9 +175,17 @@
                     background-color:rgba(103, 165, 172, 0.3);
                     font-size:0.8em;
                     position:relative;
-                    top:-0.6em;
+                    top:-2.25em;
+		    left: 16em;
                     color:#FFFFFF;
                 }
+
+     
+         
+
+                    }
+
+
         #cns_link, #cns_link:hover {
             background:url(<?php echo get_template_directory_uri(); ?>/images/utwordmark.gif) no-repeat 5px center;
             bottom: 0;
@@ -175,7 +198,7 @@
             padding-bottom: 1em;
         }
         
-        #top_branding {
+       #top_branding {
         	background:#ffffff;
         	height: 34px;
         	position:relative;
@@ -187,9 +210,10 @@
         	height: 34px;
         	width: 60em;
         	margin: 0 auto;
-        	padding: 0px;
-        	background:url(<?php echo get_template_directory_uri(); ?>/images/utwordmark.gif) no-repeat 5px left;
+        	padding-left: 12px;
+        	background:url(http://ch302.cm.utexas.edu/wp-content/themes/twentyeleven-child/images/utwordmark.gif) no-repeat 5px;
     	}
+
 
                
         
@@ -225,11 +249,15 @@
             <li><a style="background: url(<?php echo get_template_directory_uri(); ?>/images/icons/Menu_Icons/VideoIcon.png) no-repeat;" href="<?php echo get_page_link(43); ?>">Video Gallery</a></li>
         </ul>
 	    <ul id="nav2">
-            <li><a style = "padding: 0px 30px 0px 30px" href="<?php echo get_permalink_by_name('credits'); ?>">Credits</a></li>
-            
-            <li class="search"><?php get_search_form(); ?></li>
+	<?php if ( function_exists( 'pixopoint_menu' ) ) {pixopoint_menu();} ?>
+	    <li class="search"><?php get_search_form(); ?></li>
+	
 	    </ul>
+      
+ 
+ </li>
 	    
+	    </ul>
 	   
         <div id="header_icon">
         	 <a href="<?php echo get_home_url(); ?>"></a>
@@ -266,3 +294,4 @@
 
 
 	<div id="main">
+

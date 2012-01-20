@@ -374,3 +374,27 @@ function ordered_dropdown_pages($post) {
 		</select>
 		<?php
 }
+
+//MEDIA UPLOAD WINDOW FOR ICONS
+
+
+
+// add the tab
+add_filter('media_upload_tabs', 'my_upload_tab');
+function my_upload_tab($tabs) {
+	$tabs['icons'] = "Icons";
+	return $tabs;
+}
+
+// call the new tab with wp_iframe
+add_action('media_upload_icons', 'add_icon_form');
+function add_icon_form() {
+	wp_iframe( 'icon_form' );
+}
+
+// the tab content
+function icon_form() {
+	return wp_iframe('media_upload_library_form');
+	?></div><?php
+}
+

@@ -14,30 +14,41 @@
     float: left;
     list-style:none;
 }
-    #module-nav > li:first-child {
+
+#module-nav a {
+        color:#FFF; 
+font-size:0.9em;
+    }
+
+#module-nav > li:first-child {
         margin-top:0;
     }
-    #module-nav > li {
+
+#module-nav > li {
         font-size:1.2em;
         margin-top:0.5em;
     }
-        #module-nav > li > ul {
+
+#module-nav > li > ul {
             margin: 0 0 0 1em;
         }
-            #module-nav > li > ul > li {
-                font-size:0.75em;
-                line-height:1.4em;
-            }
-    #module-nav a {
-        color:#FFF;
-        font-size:0.9em;
-    }
+            
+
     
-    #module-nav p {
+   #module-nav p {
     	color: rgba(255, 255, 255, 0.3);
     	font-size:0.9em;
     	margin-bottom: 0px;
+	
     }
+#module-nav > li > p {
+            	line-height:1.25em;
+            }
+
+#module-nav > li > ul > li {
+                font-size:0.75em;
+                line-height:1.4em;
+            }
     
     #module-nav a.current_page {
         color:#EBA711;
