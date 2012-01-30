@@ -70,6 +70,10 @@ body {
 	text-transform: uppercase;
 }
 
+.levela-disabled img {
+	opacity: 0.5;
+}
+
 #units > li > a, #units > li > p {
     text-align: left;
     padding-left: 90px;
@@ -80,10 +84,24 @@ body {
     padding-right: 13px;
     display: table-cell; 
     vertical-align: middle;
+    z-index: 0;
+}
+
+#units > li > img {
+	z-index: 1;
+	padding: 9px 0 0 20px;
+	position: absolute; 
 }
 
 #units {
 	width:811px;
+}
+
+#unit_icon {
+	width: 50px;
+	height: 50px;
+	background-color: blue;
+	z-index: 2;
 }
 
 #gases,
@@ -96,7 +114,7 @@ body {
 	width: 350px;
 	min-height: 70px;
 	margin: 0px 45px 27px 0px;
-
+	z-index: -1;
 }
 
 #gases > a,
@@ -112,6 +130,7 @@ body {
     margin: 5px 0 0 0;
 	line-height: 49px;
     text-align: center;
+    z-index: -1;
 }
 
 #gases > p,
@@ -127,6 +146,7 @@ body {
     margin: 5px 0 0 0;
 	line-height: 49px;
     text-align: center;
+    z-index: -1;
 }
 
 
@@ -136,6 +156,8 @@ body {
 
 #atomic-theory-and-bonding > a, #atomic-theory-and-bonding > p {
     background:url(http://ch302.cm.utexas.edu/wp-content/uploads/2012/01/chemUnitHeadernew.png) no-repeat left top;
+	position: relative;
+    z-index: 0;
     line-height: 18px !important;
 }
 

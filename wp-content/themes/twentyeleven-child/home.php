@@ -39,14 +39,26 @@ get_header();
 		}
         	
 		$unitStatus = get_post_meta($post->ID, 'enable_module');
+		
+		if (has_post_thumbnail( $post->ID ) )
+        	{
+        		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+        	}
+			
+			else {
+				$image = wp_get_attachment_image_src(476, 'single-post-thumbnail' );;
+			}
+		
 		if($unitStatus[0] == 1)
 		{
+			echo '<img src="'.$image[0].'" />';
 			echo    '<a class="levela" href="'.$post->guid.'">'.$post->post_title.'</a>';
         	echo '<ul>';
 		}
 			
 		else
 		{
+			echo '<img style="opacity: 0.5;" src="'.$image[0].'" />';
 			echo    '<p class="levela-disabled">'.$post->post_title.'</p>';
         	echo '<ul>';
 		}
