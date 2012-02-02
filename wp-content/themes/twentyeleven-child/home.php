@@ -51,7 +51,7 @@ get_header();
 		
 		if($unitStatus[0] == 1)
 		{
-			echo '<img src="'.$image[0].'" />';
+			echo '<a style = "background: none; z-index: 2; position: absolute; padding-left: 20px;" href = "'.$post->guid.'"><img src="'.$image[0].'" />'; 
 			echo    '<a class="levela" href="'.$post->guid.'">'.$post->post_title.'</a>';
         	echo '<ul>';
 		}
